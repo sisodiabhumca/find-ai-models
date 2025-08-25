@@ -2427,6 +2427,33 @@
       "source": "huggingface",
       "id": "92f6e20a-4d0f-4a22-a9e6-025cf8cb1ec5",
       "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "bartowski/TheDrummer_Cydonia-24B-v4.1-GGUF",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source gguf, text-generation, base_model:TheDrummer/Cydonia-24B-v4.1, base_model:quantized:TheDrummer/Cydonia-24B-v4.1, endpoints_compatible, region:us, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/bartowski/TheDrummer_Cydonia-24B-v4.1-GGUF",
+      "source": "huggingface",
+      "id": "441c4154-a157-4377-9afc-b189cffa4fd4",
+      "last_updated": "2025-08-25T21:03:13.751Z"
     }
   ],
   "bookmarks": []
