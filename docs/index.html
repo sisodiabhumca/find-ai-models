@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Recommender</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0b1020;
+            color: #e9eefc;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #74c0fc;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .description {
+            color: #a8b0c8;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        .button {
+            background: linear-gradient(135deg, #74c0fc, #5c7cfa);
+            color: #0b1020;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        .secondary {
+            background: #1a2332;
+            color: #e9eefc;
+            border: 1px solid #243056;
+        }
+        .features {
+            background: #12182b;
+            border: 1px solid #202948;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+        }
+        .features h3 {
+            color: #74c0fc;
+            margin-top: 0;
+        }
+        .features ul {
+            color: #a8b0c8;
+            line-height: 1.8;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: #12182b;
+            border: 1px solid #202948;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #74c0fc;
+        }
+        .stat-label {
+            color: #a8b0c8;
+            margin-top: 8px;
+        }
+        .center {
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            color: #a8b0c8;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #202948;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Model Recommender</h1>
+        <p class="description">
+            Discover and compare AI models from major providers. 
+            Our automated system continuously scans for new models and helps you find the perfect AI solution for your needs.
+        </p>
+        
+        <div class="center">
+            <a href="https://github.com/sisodiabhumca/find-ai-models" class="button">📁 View on GitHub</a>
+            <a href="https://github.com/sisodiabhumca/find-ai-models#quick-start" class="button secondary">🚀 Get Started</a>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">89</div>
+                <div class="stat-label">AI Models</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Discovery Sources</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Model Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Auto Discovery</div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <h3>✨ Key Features</h3>
+            <ul>
+                <li><strong>Automated Discovery:</strong> Scans Hugging Face, OpenAI, Anthropic, Google, and ModelScope daily</li>
+                <li><strong>Smart Recommendations:</strong> Find models based on your specific use case and requirements</li>
+                <li><strong>Comprehensive Database:</strong> 89+ models from major AI providers</li>
+                <li><strong>Real-time Updates:</strong> New models added automatically with timestamps</li>
+                <li><strong>Multiple Categories:</strong> LLM, Vision, Speech, Code, Embedding, Image Generation, and more</li>
+                <li><strong>Cost & Performance Analysis:</strong> Compare models by cost, latency, and accuracy</li>
+            </ul>
+        </div>
+        
+        <div class="features">
+            <h3>🔧 Quick Start</h3>
+            <ul>
+                <li><strong>Clone Repository:</strong> <code>git clone https://github.com/sisodiabhumca/find-ai-models.git</code></li>
+                <li><strong>Install Dependencies:</strong> <code>npm install</code></li>
+                <li><strong>Start Server:</strong> <code>npm run dev</code></li>
+                <li><strong>Access Web Interface:</strong> Open http://localhost:3000</li>
+                <li><strong>Automated Discovery:</strong> Runs daily at 5 PM PST</li>
+            </ul>
+        </div>
+        
+        <div class="features">
+            <h3>📊 Model Categories</h3>
+            <ul>
+                <li><strong>LLM Models:</strong> GPT-4, Claude, Gemini, Llama, and more (56 models)</li>
+                <li><strong>Vision Models:</strong> YOLO, CLIP, SAM, DETR for computer vision (6 models)</li>
+                <li><strong>Speech Models:</strong> Whisper, Wav2Vec, Coqui TTS for audio processing (12 models)</li>
+                <li><strong>Code Models:</strong> Code Llama, CodeT5+ for code generation (4 models)</li>
+                <li><strong>Embedding Models:</strong> text-embedding, BGE, E5 for semantic search (4 models)</li>
+                <li><strong>Other Categories:</strong> Image Generation, Multimodal, Recommendation systems (7 models)</li>
+            </ul>
+        </div>
+        
+        <div class="features">
+            <h3>🚀 Advanced Features</h3>
+            <ul>
+                <li><strong>API Endpoints:</strong> Full REST API for integration with other applications</li>
+                <li><strong>Export Capabilities:</strong> Export recommendations as CSV or PDF</li>
+                <li><strong>Bookmarking:</strong> Save interesting models for later reference</li>
+                <li><strong>Filtering:</strong> Filter by industry, type, cost, and performance</li>
+                <li><strong>Statistics:</strong> Comprehensive analytics and model distribution</li>
+                <li><strong>Admin Panel:</strong> Add and manage models through web interface</li>
+            </ul>
+        </div>
+        
+        <div class="center">
+            <a href="https://github.com/sisodiabhumca/find-ai-models" class="button">🌟 Star on GitHub</a>
+            <a href="https://github.com/sisodiabhumca/find-ai-models/issues" class="button secondary">🐛 Report Issues</a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Choose wisely. Iterate quickly.</strong> 🚀</p>
+            <p>Built with ❤️ for the AI community</p>
+        </div>
+    </div>
+</body>
+</html>
