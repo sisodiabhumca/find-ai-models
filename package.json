@@ -10,7 +10,8 @@
     "seed-comprehensive": "node scripts/comprehensive-models.js",
     "discover": "node scripts/model-discovery.js",
     "scheduler": "node scripts/scheduler.js",
-    "start-discovery": "node scripts/scheduler.js"
+    "start-discovery": "node scripts/scheduler.js",
+    "update-demo": "node scripts/update-static-demo.js"
   },
   "dependencies": {
     "lowdb": "^7.0.1",
