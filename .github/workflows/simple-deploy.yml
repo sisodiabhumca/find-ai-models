@@ -29,7 +29,7 @@ jobs:
     - name: Build static files
       run: |
         mkdir -p dist
-        cp public/index.html dist/index.html
+        cp public/static-demo.html dist/index.html
         cp data/db.json dist/
         
     - name: Setup Pages

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
+    "start": "node server.js",
     "seed": "node scripts/seed.js",
     "seed-comprehensive": "node scripts/comprehensive-models.js",
     "discover": "node scripts/model-discovery.js",

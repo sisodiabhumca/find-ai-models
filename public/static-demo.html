@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Model Recommender - Static Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+      :root { --bg: #0b1020; --card:#12182b; --fg:#e9eefc; --muted:#a8b0c8; --brand:#74c0fc; --accent:#ffd43b; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+      header { padding: 24px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #202948; position: sticky; top:0; backdrop-filter: blur(6px); background: rgba(11,16,32,0.7); z-index: 10; }
+      .brand { font-weight: 800; letter-spacing: 0.5px; }
+      .tagline { color: var(--muted); font-weight:600; }
+      main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+      .search { background: var(--card); padding: 16px; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.3); border:1px solid #202948; }
+      .search-row { display:flex; gap:12px; align-items:center; }
+      input[type="text"] { flex:1; padding:12px 14px; border-radius: 10px; border:1px solid #243056; background:#0e1330; color: var(--fg); }
+      select { padding: 10px; border-radius: 10px; border:1px solid #243056; background:#0e1330; color: var(--fg); }
+      button { background: linear-gradient(135deg, var(--brand), #5c7cfa); color:#0b1020; border:none; padding:12px 16px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+      button.secondary { background: #0e1330; color: var(--fg); border:1px solid #243056; }
+      .layout { display:grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top:16px; }
+      .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+      .card { background: var(--card); border:1px solid #202948; border-radius: 12px; padding: 14px; display:flex; gap:10px; flex-direction:column; }
+      .card h3 { margin: 0; font-size: 1.05rem; }
+      .muted { color: var(--muted); font-size: 0.9rem; }
+      .pill { display:inline-block; padding:4px 8px; background:#0e1330; border:1px solid #243056; border-radius: 999px; font-size: 12px; color: var(--muted); margin-right:6px }
+      .sidebar { background: var(--card); border:1px solid #202948; border-radius:12px; padding: 12px; }
+      .bookmark { display:flex; align-items:center; justify-content:space-between; padding:8px; border-radius:8px; border:1px solid #243056; margin-bottom:8px; }
+      .admin { margin-top: 16px; }
+      footer { text-align:center; color: var(--muted); padding: 24px; }
+      .tag-hero { font-size: 1.1rem; }
+      .empty { color: var(--muted); text-align:center; padding: 24px; border:1px dashed #243056; border-radius: 10px; }
+      .demo-notice { background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); border-radius: 8px; padding: 15px; margin: 20px 0; color: #ffc107; }
+      .demo-notice strong { color: #ffd54f; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <div class="brand">ModelWise</div>
+        <div class="tagline">Your time is finite. New models are infinite. Choose wisely.</div>
+      </div>
+      <div>
+        <button id="exportCsvBtn" class="secondary">Export CSV</button>
+        <button id="exportPdfBtn" class="secondary">Export PDF</button>
+      </div>
+    </header>
+    <main>
+      <div class="demo-notice">
+        <strong>Static Demo Mode:</strong> This is a client-side demo with embedded data. For the full interactive experience with live discovery, 
+        <a href="https://github.com/sisodiabhumca/find-ai-models" style="color: #74c0fc;">clone the repository</a> and run locally.
+      </div>
+      
+      <section class="search">
+        <div class="search-row">
+          <input id="query" type="text" placeholder="Describe your problem… e.g., \"Summarize customer tickets and route to correct team\"" />
+          <select id="industry">
+            <option value="">All industries</option>
+            <option>finance</option>
+            <option>healthcare</option>
+            <option>retail</option>
+            <option>manufacturing</option>
+            <option>media</option>
+            <option>ecommerce</option>
+            <option>general</option>
+          </select>
+          <select id="type">
+            <option value="">All types</option>
+            <option>LLM</option>
+            <option>Vision</option>
+            <option>Speech</option>
+            <option>Recommendation</option>
+          </select>
+          <select id="priority">
+            <option value="">Priority</option>
+            <option value="cost">Cost</option>
+            <option value="accuracy">Accuracy</option>
+            <option value="speed">Speed</option>
+          </select>
+          <button id="searchBtn">Find Models</button>
+        </div>
+      </section>
+
+      <div class="layout">
+        <section>
+          <h2>Recommendations</h2>
+          <div id="results" class="cards"></div>
+          <div id="emptyState" class="empty" style="display:none">No results. Try another query or adjust filters.</div>
+          <div id="pagination" style="display:flex; align-items:center; gap:8px; margin-top:12px"></div>
+        </section>
+        <aside class="sidebar">
+          <h3>Bookmarks</h3>
+          <div id="bookmarks"></div>
+          <div class="admin">
+            <h3>Demo Stats</h3>
+            <div id="demo_stats">
+              <div><strong>Total Models:</strong> <span id="total_models">Loading...</span></div>
+              <div><strong>LLM Models:</strong> <span id="llm_count">Loading...</span></div>
+              <div><strong>Vision Models:</strong> <span id="vision_count">Loading...</span></div>
+              <div><strong>Speech Models:</strong> <span id="speech_count">Loading...</span></div>
+              <div><strong>Providers:</strong> <span id="providers_count">Loading...</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer>
+      Choose wisely. Iterate quickly.
+    </footer>
+
+    <script>
+      // Embedded model data (sample of the most popular models)
+      const models = [
+        {
+          "id": "gpt4o-mini",
+          "name": "GPT-4o mini",
+          "provider": "OpenAI",
+          "type": "LLM",
+          "cost_per_1k_tokens": 0.15,
+          "cost_tier": "medium",
+          "latency_tier": "low",
+          "description": "Lightweight multimodal model suitable for chat, reasoning, and tool-use with good speed/cost balance.",
+          "use_cases": "Customer support, content drafting, code assistance, lightweight RAG.",
+          "industry": ["general"],
+          "benchmarks": { "overall": 0.78 },
+          "pros": ["Fast", "Good reasoning", "Broad ecosystem"],
+          "cons": ["Paid API", "Data privacy considerations"],
+          "url": "https://platform.openai.com/"
+        },
+        {
+          "id": "claude-3-5-sonnet",
+          "name": "Claude 3.5 Sonnet",
+          "provider": "Anthropic",
+          "type": "LLM",
+          "cost_per_1k_tokens": 3,
+          "cost_tier": "high",
+          "latency_tier": "medium",
+          "description": "High capability LLM focused on safety and reasoning quality.",
+          "use_cases": "Analysis, drafting, support with focus on safety.",
+          "industry": ["general", "healthcare", "finance"],
+          "benchmarks": { "overall": 0.82 },
+          "pros": ["Strong safety", "Great reasoning"],
+          "cons": ["Higher cost"],
+          "url": "https://www.anthropic.com"
+        },
+        {
+          "id": "llama-3-1-70b",
+          "name": "Llama 3.1 70B Instruct",
+          "provider": "Meta",
+          "type": "LLM",
+          "cost_per_1k_tokens": null,
+          "cost_tier": "low",
+          "latency_tier": "medium",
+          "description": "Open-source instruction-tuned model good for on-prem or private deployments.",
+          "use_cases": "Private chat, internal automation, RAG.",
+          "industry": ["general"],
+          "benchmarks": { "overall": 0.75 },
+          "pros": ["Open source", "Self-hostable"],
+          "cons": ["Infra/ops overhead"],
+          "url": "https://ai.meta.com/llama/"
+        },
+        {
+          "id": "whisper-large-v3",
+          "name": "Whisper Large-v3",
+          "provider": "OpenAI",
+          "type": "Speech",
+          "cost_per_1k_tokens": null,
+          "cost_tier": "medium",
+          "latency_tier": "medium",
+          "description": "State-of-the-art speech recognition and translation model.",
+          "use_cases": "Transcription, voice analytics, captions.",
+          "industry": ["media", "healthcare"],
+          "benchmarks": { "overall": 0.85 },
+          "pros": ["High accuracy", "Multilingual"],
+          "cons": ["API costs", "Processing time"],
+          "url": "https://platform.openai.com/"
+        },
+        {
+          "id": "yolo-v8",
+          "name": "YOLO v8",
+          "provider": "Ultralytics",
+          "type": "Vision",
+          "cost_per_1k_tokens": null,
+          "cost_tier": "free",
+          "latency_tier": "fast",
+          "description": "Real-time object detection model with high accuracy.",
+          "use_cases": "Object detection, computer vision, surveillance.",
+          "industry": ["manufacturing", "retail", "media"],
+          "benchmarks": { "overall": 0.90 },
+          "pros": ["Real-time", "Open source", "High accuracy"],
+          "cons": ["Requires GPU", "Complex setup"],
+          "url": "https://ultralytics.com/"
+        },
+        {
+          "id": "gemini-pro",
+          "name": "Gemini Pro",
+          "provider": "Google",
+          "type": "LLM",
+          "cost_per_1k_tokens": 0.5,
+          "cost_tier": "medium",
+          "latency_tier": "fast",
+          "description": "Multimodal model with strong reasoning and creative capabilities.",
+          "use_cases": "Text generation, image analysis, code assistance.",
+          "industry": ["general", "media", "ecommerce"],
+          "benchmarks": { "overall": 0.80 },
+          "pros": ["Multimodal", "Good reasoning", "Google ecosystem"],
+          "cons": ["Limited availability", "API restrictions"],
+          "url": "https://ai.google.dev/"
+        },
+        {
+          "id": "code-llama-70b",
+          "name": "Code Llama 70B",
+          "provider": "Meta",
+          "type": "LLM",
+          "cost_per_1k_tokens": null,
+          "cost_tier": "low",
+          "latency_tier": "slow",
+          "description": "Large language model specialized for code generation and understanding.",
+          "use_cases": "Code generation, debugging, documentation.",
+          "industry": ["general"],
+          "benchmarks": { "overall": 0.88 },
+          "pros": ["Code specialized", "Open source", "High performance"],
+          "cons": ["Large model", "Resource intensive"],
+          "url": "https://ai.meta.com/llama/"
+        },
+        {
+          "id": "text-embedding-3-large",
+          "name": "text-embedding-3-large",
+          "provider": "OpenAI",
+          "type": "LLM",
+          "cost_per_1k_tokens": 0.13,
+          "cost_tier": "low",
+          "latency_tier": "fast",
+          "description": "High-performance embedding model for semantic search and similarity.",
+          "use_cases": "Semantic search, clustering, recommendation systems.",
+          "industry": ["general", "ecommerce", "media"],
+          "benchmarks": { "overall": 0.89 },
+          "pros": ["High performance", "Cost effective", "Easy integration"],
+          "cons": ["API dependency", "Limited customization"],
+          "url": "https://platform.openai.com/"
+        }
+      ];
+
+      // Simple TF-IDF implementation for search
+      function calculateTFIDF(query, documents) {
+        const queryTerms = query.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+        const results = [];
+        
+        for (const doc of documents) {
+          const docText = `${doc.name} ${doc.description} ${doc.use_cases} ${doc.provider} ${doc.type}`.toLowerCase();
+          let score = 0;
+          
+          for (const term of queryTerms) {
+            const tf = (docText.match(new RegExp(term, 'g')) || []).length;
+            const idf = Math.log(documents.length / (documents.filter(d => 
+              `${d.name} ${d.description} ${d.use_cases} ${d.provider} ${d.type}`.toLowerCase().includes(term)
+            ).length + 1));
+            score += tf * idf;
+          }
+          
+          if (score > 0) {
+            results.push({ ...doc, score });
+          }
+        }
+        
+        return results.sort((a, b) => b.score - a.score);
+      }
+
+      // Filter models based on criteria
+      function filterModels(query, industry, type, priority) {
+        let filtered = [...models];
+        
+        // Text search
+        if (query.trim()) {
+          const searchResults = calculateTFIDF(query, filtered);
+          filtered = searchResults.map(r => r.model || r);
+        }
+        
+        // Industry filter
+        if (industry) {
+          filtered = filtered.filter(m => m.industry && m.industry.includes(industry.toLowerCase()));
+        }
+        
+        // Type filter
+        if (type) {
+          filtered = filtered.filter(m => m.type === type);
+        }
+        
+        // Priority-based sorting
+        if (priority) {
+          filtered.sort((a, b) => {
+            switch (priority) {
+              case 'cost':
+                return (a.cost_per_1k_tokens || 999) - (b.cost_per_1k_tokens || 999);
+              case 'accuracy':
+                return (b.benchmarks?.overall || 0) - (a.benchmarks?.overall || 0);
+              case 'speed':
+                const speedOrder = { 'fast': 3, 'medium': 2, 'slow': 1 };
+                return (speedOrder[b.latency_tier] || 0) - (speedOrder[a.latency_tier] || 0);
+              default:
+                return 0;
+            }
+          });
+        }
+        
+        return filtered;
+      }
+
+      // Create model card
+      function createModelCard(model) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${model.name}</h3>
+          <div class="muted">${model.provider} • ${model.type}</div>
+          <p>${model.description}</p>
+          <div>
+            <span class="pill">${model.cost_tier || 'N/A'}</span>
+            <span class="pill">${model.latency_tier || 'N/A'}</span>
+            <span class="pill">${Math.round((model.benchmarks?.overall || 0) * 100)}%</span>
+          </div>
+          <div class="muted">${model.use_cases}</div>
+          <button onclick="window.open('${model.url}', '_blank')" class="secondary" style="margin-top:8px">Learn More</button>
+        `;
+        return card;
+      }
+
+      // Search function
+      function search() {
+        const query = document.getElementById('query').value;
+        const industry = document.getElementById('industry').value;
+        const type = document.getElementById('type').value;
+        const priority = document.getElementById('priority').value;
+        
+        const results = filterModels(query, industry, type, priority);
+        const resultsEl = document.getElementById('results');
+        const emptyEl = document.getElementById('emptyState');
+        
+        resultsEl.innerHTML = '';
+        
+        if (results.length === 0) {
+          emptyEl.style.display = 'block';
+          return;
+        }
+        
+        emptyEl.style.display = 'none';
+        results.forEach(model => {
+          resultsEl.appendChild(createModelCard(model));
+        });
+        
+        window.__lastResults = results;
+      }
+
+      // Export functions
+      function exportCSV() {
+        if (!window.__lastResults) {
+          alert('Run a search first.');
+          return;
+        }
+        
+        const csv = [
+          ['Name', 'Provider', 'Type', 'Description', 'Use Cases', 'Cost Tier', 'Accuracy'],
+          ...window.__lastResults.map(m => [
+            m.name,
+            m.provider,
+            m.type,
+            m.description,
+            m.use_cases,
+            m.cost_tier || 'N/A',
+            Math.round((m.benchmarks?.overall || 0) * 100) + '%'
+          ])
+        ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+        
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ai-model-recommendations.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Update demo stats
+      function updateStats() {
+        const llmCount = models.filter(m => m.type === 'LLM').length;
+        const visionCount = models.filter(m => m.type === 'Vision').length;
+        const speechCount = models.filter(m => m.type === 'Speech').length;
+        const providers = [...new Set(models.map(m => m.provider))];
+        
+        document.getElementById('total_models').textContent = models.length;
+        document.getElementById('llm_count').textContent = llmCount;
+        document.getElementById('vision_count').textContent = visionCount;
+        document.getElementById('speech_count').textContent = speechCount;
+        document.getElementById('providers_count').textContent = providers.length;
+      }
+
+      // Event listeners
+      document.getElementById('searchBtn').onclick = search;
+      document.getElementById('exportCsvBtn').onclick = exportCSV;
+      document.getElementById('exportPdfBtn').onclick = () => alert('PDF export requires the full application. Clone the repository to use this feature.');
+      
+      // Initialize
+      updateStats();
+      search();
+    </script>
+  </body>
+</html>
