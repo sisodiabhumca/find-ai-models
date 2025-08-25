@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Model Recommender</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+      :root { --bg: #0b1020; --card:#12182b; --fg:#e9eefc; --muted:#a8b0c8; --brand:#74c0fc; --accent:#ffd43b; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+      header { padding: 24px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #202948; position: sticky; top:0; backdrop-filter: blur(6px); background: rgba(11,16,32,0.7); z-index: 10; }
+      .brand { font-weight: 800; letter-spacing: 0.5px; }
+      .tagline { color: var(--muted); font-weight:600; }
+      main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+      .search { background: var(--card); padding: 16px; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.3); border:1px solid #202948; }
+      .search-row { display:flex; gap:12px; align-items:center; }
+      input[type="text"] { flex:1; padding:12px 14px; border-radius: 10px; border:1px solid #243056; background:#0e1330; color: var(--fg); }
+      select { padding: 10px; border-radius: 10px; border:1px solid #243056; background:#0e1330; color: var(--fg); }
+      button { background: linear-gradient(135deg, var(--brand), #5c7cfa); color:#0b1020; border:none; padding:12px 16px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+      button.secondary { background: #0e1330; color: var(--fg); border:1px solid #243056; }
+      .layout { display:grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top:16px; }
+      .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+      .card { background: var(--card); border:1px solid #202948; border-radius: 12px; padding: 14px; display:flex; gap:10px; flex-direction:column; }
+      .card h3 { margin: 0; font-size: 1.05rem; }
+      .muted { color: var(--muted); font-size: 0.9rem; }
+      .pill { display:inline-block; padding:4px 8px; background:#0e1330; border:1px solid #243056; border-radius: 999px; font-size: 12px; color: var(--muted); margin-right:6px }
+      .sidebar { background: var(--card); border:1px solid #202948; border-radius:12px; padding: 12px; }
+      .bookmark { display:flex; align-items:center; justify-content:space-between; padding:8px; border-radius:8px; border:1px solid #243056; margin-bottom:8px; }
+      .admin { margin-top: 16px; }
+      footer { text-align:center; color: var(--muted); padding: 24px; }
+      .tag-hero { font-size: 1.1rem; }
+      .empty { color: var(--muted); text-align:center; padding: 24px; border:1px dashed #243056; border-radius: 10px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <div class="brand">ModelWise</div>
+        <div class="tagline">Your time is finite. New models are infinite. Choose wisely.</div>
+      </div>
+      <div>
+        <button id="exportCsvBtn" class="secondary">Export CSV</button>
+        <button id="exportPdfBtn" class="secondary">Export PDF</button>
+      </div>
+    </header>
+    <main>
+      <section class="search">
+        <div class="search-row">
+          <input id="query" type="text" placeholder="Describe your problem… e.g., \"Summarize customer tickets and route to correct team\"" />
+          <select id="industry">
+            <option value="">All industries</option>
+            <option>finance</option>
+            <option>healthcare</option>
+            <option>retail</option>
+            <option>manufacturing</option>
+            <option>media</option>
+            <option>ecommerce</option>
+            <option>general</option>
+          </select>
+          <select id="type">
+            <option value="">All types</option>
+            <option>LLM</option>
+            <option>Vision</option>
+            <option>Speech</option>
+            <option>Recommendation</option>
+          </select>
+          <select id="priority">
+            <option value="">Priority</option>
+            <option value="cost">Cost</option>
+            <option value="accuracy">Accuracy</option>
+            <option value="speed">Speed</option>
+          </select>
+          <button id="searchBtn">Find Models</button>
+        </div>
+      </section>
+
+      <div class="layout">
+        <section>
+          <h2>Recommendations</h2>
+          <div id="results" class="cards"></div>
+          <div id="emptyState" class="empty" style="display:none">No results. Try another query or adjust filters.</div>
+          <div id="pagination" style="display:flex; align-items:center; gap:8px; margin-top:12px"></div>
+        </section>
+        <aside class="sidebar">
+          <h3>Bookmarks</h3>
+          <div id="bookmarks"></div>
+          <div class="admin">
+            <h3>Admin: Add Model</h3>
+            <div style="display:grid; gap:8px">
+              <input id="admin_name" placeholder="Name" />
+              <input id="admin_provider" placeholder="Provider" />
+              <input id="admin_type" placeholder="Type (LLM/Vision/Speech/Recommendation)" />
+              <input id="admin_url" placeholder="URL" />
+              <textarea id="admin_desc" placeholder="Description" rows="3" style="background:#0e1330;color:#e9eefc;border:1px solid #243056;border-radius:8px;padding:8px"></textarea>
+              <button id="admin_add">Add</button>
+            </div>
+          </div>
+          
+          <div class="admin">
+            <h3>Discovery Management</h3>
+            <div style="display:grid; gap:8px">
+              <div id="discovery_status" class="muted">Loading status...</div>
+              <button id="trigger_discovery">Trigger Discovery</button>
+              <button id="refresh_status" class="secondary">Refresh Status</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer>
+      <div class="tag-hero">Choose wisely. Iterate quickly.</div>
+    </footer>
+
+    <script>
+      const resultsEl = document.getElementById('results');
+      const emptyEl = document.getElementById('emptyState');
+      const bookmarksEl = document.getElementById('bookmarks');
+      const paginationEl = document.getElementById('pagination');
+
+      const state = {
+        page: 1,
+        pageSize: 12,
+        total: 0,
+        lastFilters: { query: '', industry: '', type: '', priority: '' },
+        lastResults: []
+      };
+
+      async function fetchBookmarks() {
+        const res = await fetch('/api/bookmarks');
+        const data = await res.json();
+        bookmarksEl.innerHTML = '';
+        for (const b of data.bookmarks) {
+          const div = document.createElement('div');
+          div.className = 'bookmark';
+          div.innerHTML = `<span>${b.model_id}</span><button data-id="${b.id}" class="secondary">Remove</button>`;
+          div.querySelector('button').onclick = async () => {
+            await fetch(`/api/bookmarks/${b.id}`, { method: 'DELETE' });
+            fetchBookmarks();
+          };
+          bookmarksEl.appendChild(div);
+        }
+        if (!data.bookmarks.length) {
+          const d = document.createElement('div');
+          d.className = 'muted';
+          d.textContent = 'No bookmarks yet.';
+          bookmarksEl.appendChild(d);
+        }
+      }
+
+      function card(model) {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `
+          <h3>${model.name} <span class="muted">· ${model.provider}</span></h3>
+          <div>
+            <span class="pill">${model.type}</span>
+            <span class="pill">Cost: ${model.cost_tier || 'n/a'}</span>
+            <span class="pill">Latency: ${model.latency_tier || 'n/a'}</span>
+            ${model.score !== undefined ? `<span class="pill">Score: ${model.score}</span>` : ''}
+          </div>
+          <div class="muted">${model.description || ''}</div>
+          ${Array.isArray(model.pros) && model.pros.length ? `<div><strong>Pros:</strong> ${model.pros.join(', ')}</div>` : ''}
+          ${Array.isArray(model.cons) && model.cons.length ? `<div><strong>Cons:</strong> ${model.cons.join(', ')}</div>` : ''}
+          ${model.url ? `<a class="secondary" href="${model.url}" target="_blank" style="color:#74c0fc">Learn more</a>` : ''}
+          <div style="display:flex; gap:8px">
+            <button class="secondary" data-action="bookmark">Bookmark</button>
+          </div>
+        `;
+        div.querySelector('[data-action="bookmark"]').onclick = async () => {
+          await fetch('/api/bookmarks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model_id: model.id })});
+          fetchBookmarks();
+        };
+        return div;
+      }
+
+      function renderPagination() {
+        const totalPages = Math.max(1, Math.ceil(state.total / state.pageSize));
+        if (state.total === 0) { paginationEl.style.display = 'none'; return; }
+        paginationEl.style.display = 'flex';
+        paginationEl.innerHTML = '';
+        const prev = document.createElement('button'); prev.className = 'secondary'; prev.textContent = 'Prev';
+        prev.disabled = state.page <= 1;
+        prev.onclick = () => { if (state.page > 1) { state.page -= 1; search({ keepPage: true }); } };
+        const info = document.createElement('span'); info.className = 'muted'; info.textContent = `Page ${state.page} of ${totalPages} · ${state.total} results`;
+        const next = document.createElement('button'); next.className = 'secondary'; next.textContent = 'Next';
+        next.disabled = state.page >= totalPages;
+        next.onclick = () => { if (state.page < totalPages) { state.page += 1; search({ keepPage: true }); } };
+        paginationEl.append(prev, info, next);
+      }
+
+      async function search(opts = {}) {
+        const query = document.getElementById('query').value;
+        const industry = document.getElementById('industry').value;
+        const type = document.getElementById('type').value;
+        const priority = document.getElementById('priority').value;
+        const filtersChanged = (
+          state.lastFilters.query !== query ||
+          state.lastFilters.industry !== industry ||
+          state.lastFilters.type !== type ||
+          state.lastFilters.priority !== priority
+        );
+        if (filtersChanged && !opts.keepPage) state.page = 1;
+        state.lastFilters = { query, industry, type, priority };
+        const res = await fetch('/api/recommend', { method:'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query, industry, type, priority, page: state.page, pageSize: state.pageSize })});
+        const data = await res.json();
+        resultsEl.innerHTML = '';
+        state.total = data.total || 0;
+        state.lastResults = data.results || [];
+        if (!state.lastResults.length) {
+          emptyEl.style.display = 'block';
+          renderPagination();
+          return;
+        }
+        emptyEl.style.display = 'none';
+        window.__lastResults = state.lastResults;
+        for (const m of state.lastResults) resultsEl.appendChild(card(m));
+        renderPagination();
+      }
+
+      document.getElementById('searchBtn').onclick = () => search({ keepPage: false });
+
+      document.getElementById('exportCsvBtn').onclick = async () => {
+        if (!window.__lastResults) return alert('Run a search first.');
+        const res = await fetch('/api/export', { method:'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ results: window.__lastResults, format:'csv' })});
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'recommendations.csv'; a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      document.getElementById('exportPdfBtn').onclick = async () => {
+        if (!window.__lastResults) return alert('Run a search first.');
+        const res = await fetch('/api/export', { method:'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ results: window.__lastResults, format:'pdf' })});
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'recommendations.pdf'; a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      document.getElementById('admin_add').onclick = async () => {
+        const name = document.getElementById('admin_name').value.trim();
+        const provider = document.getElementById('admin_provider').value.trim();
+        const type = document.getElementById('admin_type').value.trim();
+        const url = document.getElementById('admin_url').value.trim();
+        const description = document.getElementById('admin_desc').value.trim();
+        if (!name || !provider || !type) return alert('Name, Provider, and Type are required');
+        await fetch('/api/admin/models', { method:'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, provider, type, url, description })});
+        alert('Model added. It will appear in future searches.');
+      };
+
+      // Discovery management functions
+      async function fetchDiscoveryStatus() {
+        try {
+          const res = await fetch('/api/discovery/status');
+          const status = await res.json();
+          const statusEl = document.getElementById('discovery_status');
+          statusEl.innerHTML = `
+            <div><strong>Status:</strong> ${status.enabled ? 'Enabled' : 'Disabled'}</div>
+            <div><strong>Total Models:</strong> ${status.currentModels}</div>
+            <div><strong>Last Run:</strong> ${status.lastRun ? new Date(status.lastRun).toLocaleString() : 'Never'}</div>
+            <div><strong>Total Runs:</strong> ${status.totalRuns}</div>
+            <div><strong>New Models Found:</strong> ${status.totalNewModels}</div>
+            <div><strong>Interval:</strong> ${Math.round(status.interval / (1000 * 60 * 60))} hours</div>
+          `;
+        } catch (error) {
+          document.getElementById('discovery_status').innerHTML = `<div style="color: #ff6b6b;">Error loading status: ${error.message}</div>`;
+        }
+      }
+
+      document.getElementById('trigger_discovery').onclick = async () => {
+        const btn = document.getElementById('trigger_discovery');
+        btn.disabled = true;
+        btn.textContent = 'Running...';
+        try {
+          const res = await fetch('/api/discovery/trigger', { method: 'POST' });
+          const result = await res.json();
+          if (result.success) {
+            alert('Discovery completed successfully!');
+            fetchDiscoveryStatus();
+            search(); // Refresh results
+          } else {
+            alert('Discovery failed: ' + result.error);
+          }
+        } catch (error) {
+          alert('Error triggering discovery: ' + error.message);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Trigger Discovery';
+        }
+      };
+
+      document.getElementById('refresh_status').onclick = fetchDiscoveryStatus;
+
+      // initial
+      fetchBookmarks();
+      fetchDiscoveryStatus();
+      search();
+    </script>
+  </body>
+</html>

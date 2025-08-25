@@ -1,0 +1,2433 @@
+{
+  "models": [
+    {
+      "id": "2e71a916-b05f-455f-b97f-20316d61b829",
+      "name": "GPT-4o mini",
+      "provider": "OpenAI",
+      "type": "LLM",
+      "cost_per_1k_tokens": 0.15,
+      "cost_tier": "medium",
+      "latency_tier": "low",
+      "description": "Lightweight multimodal model suitable for chat, reasoning, and tool-use with good speed/cost balance.",
+      "use_cases": "Customer support, content drafting, code assistance, lightweight RAG.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Fast",
+        "Good reasoning",
+        "Broad ecosystem"
+      ],
+      "cons": [
+        "Paid API",
+        "Data privacy considerations"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.573Z"
+    },
+    {
+      "id": "9f62d813-8e5d-4363-b42c-6d9b7f543004",
+      "name": "Claude 3.5 Sonnet",
+      "provider": "Anthropic",
+      "type": "LLM",
+      "cost_per_1k_tokens": 3,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "High capability LLM focused on safety and reasoning quality.",
+      "use_cases": "Analysis, drafting, support with focus on safety.",
+      "industry": [
+        "general",
+        "healthcare",
+        "finance"
+      ],
+      "benchmarks": {
+        "overall": 0.82
+      },
+      "pros": [
+        "Strong safety",
+        "Great reasoning"
+      ],
+      "cons": [
+        "Higher cost"
+      ],
+      "url": "https://www.anthropic.com",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "6bdea208-68d7-4c06-9663-fdcea1c9753d",
+      "name": "Llama 3.1 70B Instruct",
+      "provider": "Meta",
+      "type": "LLM",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open-source instruction-tuned model good for on-prem or private deployments.",
+      "use_cases": "Private chat, internal automation, RAG.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.75
+      },
+      "pros": [
+        "Open source",
+        "Self-hostable"
+      ],
+      "cons": [
+        "Infra/ops overhead"
+      ],
+      "url": "https://ai.meta.com/llama/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "c2f06858-555f-4a0a-ad40-5575656c2caa",
+      "name": "Whisper Large-v3",
+      "provider": "OpenAI",
+      "type": "Speech",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "medium",
+      "latency_tier": "medium",
+      "description": "State-of-the-art speech recognition and translation model.",
+      "use_cases": "Transcription, voice analytics, captions.",
+      "industry": [
+        "media",
+        "healthcare"
+      ],
+      "benchmarks": {
+        "overall": 0.85
+      },
+      "pros": [
+        "Accurate",
+        "Multilingual"
+      ],
+      "cons": [
+        "GPU costs for self-hosting"
+      ],
+      "url": "https://github.com/openai/whisper",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "55d8e4a9-9bd2-4a13-ab56-66a485b5958c",
+      "name": "YOLOv8",
+      "provider": "Ultralytics",
+      "type": "Vision",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Real-time object detection model family.",
+      "use_cases": "Retail analytics, inspection, security.",
+      "industry": [
+        "retail",
+        "manufacturing"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Fast",
+        "Edge-friendly"
+      ],
+      "cons": [
+        "Requires dataset-specific fine-tuning"
+      ],
+      "url": "https://docs.ultralytics.com",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "ac59bdff-b438-45a0-a000-a5d2c6303c6b",
+      "name": "CLIP",
+      "provider": "OpenAI",
+      "type": "Vision",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Connects text and images for zero-shot classification and retrieval.",
+      "use_cases": "Search, tagging, moderation.",
+      "industry": [
+        "media",
+        "ecommerce"
+      ],
+      "benchmarks": {
+        "overall": 0.68
+      },
+      "pros": [
+        "Zero-shot",
+        "Open weights"
+      ],
+      "cons": [
+        "Not for detection/segmentation"
+      ],
+      "url": "https://openai.com/research/clip",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "882dd5b7-877d-4925-8426-59189f360d84",
+      "name": "LightFM",
+      "provider": "Open-source",
+      "type": "Recommendation",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Hybrid recommendation algorithm (content + collaborative).",
+      "use_cases": "Personalization, product recommendation.",
+      "industry": [
+        "ecommerce",
+        "media"
+      ],
+      "benchmarks": {
+        "overall": 0.6
+      },
+      "pros": [
+        "Simple",
+        "Efficient"
+      ],
+      "cons": [
+        "Limited deep personalization"
+      ],
+      "url": "https://github.com/lyst/lightfm",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "fef09a62-7fcc-4601-a079-bf38027d6e58",
+      "name": "Implicit ALS",
+      "provider": "Ben Frederickson",
+      "type": "Recommendation",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Alternating least squares for implicit feedback data.",
+      "use_cases": "Large-scale recommendation with implicit feedback.",
+      "industry": [
+        "ecommerce",
+        "media"
+      ],
+      "benchmarks": {
+        "overall": 0.58
+      },
+      "pros": [
+        "Scales well"
+      ],
+      "cons": [
+        "Needs tuning",
+        "Cold-start issues"
+      ],
+      "url": "https://github.com/benfred/implicit",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "b4ccddf7-cb26-4813-9a9f-4e7e4862b35a",
+      "name": "GPT-4o",
+      "provider": "OpenAI",
+      "type": "LLM",
+      "cost_per_1k_tokens": 5,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "Most capable multimodal model for complex reasoning and analysis.",
+      "use_cases": "Advanced reasoning, complex analysis, multimodal tasks, research.",
+      "industry": [
+        "general",
+        "research",
+        "finance",
+        "healthcare"
+      ],
+      "benchmarks": {
+        "overall": 0.88
+      },
+      "pros": [
+        "Most capable",
+        "Multimodal",
+        "Excellent reasoning"
+      ],
+      "cons": [
+        "Expensive",
+        "Slower than smaller models"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.573Z"
+    },
+    {
+      "id": "3db18e5b-6a15-445a-9892-2e87900935c8",
+      "name": "GPT-4 Turbo",
+      "provider": "OpenAI",
+      "type": "LLM",
+      "cost_per_1k_tokens": 10,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "High-performance model with extended context window.",
+      "use_cases": "Long-form content, complex analysis, research.",
+      "industry": [
+        "general",
+        "research",
+        "finance"
+      ],
+      "benchmarks": {
+        "overall": 0.85
+      },
+      "pros": [
+        "Extended context",
+        "High performance"
+      ],
+      "cons": [
+        "Very expensive",
+        "Slower"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "b05b0aff-eb80-438f-a06f-a6fff34e361d",
+      "name": "GPT-3.5 Turbo",
+      "provider": "OpenAI",
+      "type": "LLM",
+      "cost_per_1k_tokens": 0.5,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Fast and efficient model for general tasks.",
+      "use_cases": "Chat applications, simple tasks, prototyping.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.65
+      },
+      "pros": [
+        "Fast",
+        "Cost-effective",
+        "Reliable"
+      ],
+      "cons": [
+        "Limited reasoning",
+        "No multimodal"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "27693c73-c97d-46da-91d8-1e9015e5c153",
+      "name": "DALL-E 3",
+      "provider": "OpenAI",
+      "type": "Image Generation",
+      "cost_per_1k_tokens": 0.04,
+      "cost_tier": "medium",
+      "latency_tier": "medium",
+      "description": "Advanced image generation model with high quality and safety.",
+      "use_cases": "Creative content, marketing, design.",
+      "industry": [
+        "media",
+        "marketing",
+        "design"
+      ],
+      "benchmarks": {
+        "overall": 0.82
+      },
+      "pros": [
+        "High quality",
+        "Safe",
+        "Easy to use"
+      ],
+      "cons": [
+        "Limited control",
+        "Cost per image"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "c2c70a45-483a-4018-ae3c-3e5156818f60",
+      "name": "Claude 3.5 Haiku",
+      "provider": "Anthropic",
+      "type": "LLM",
+      "cost_per_1k_tokens": 0.25,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Fast and efficient model for simple tasks.",
+      "use_cases": "Quick responses, simple queries, high-volume tasks.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.72
+      },
+      "pros": [
+        "Very fast",
+        "Cost-effective"
+      ],
+      "cons": [
+        "Limited reasoning"
+      ],
+      "url": "https://www.anthropic.com",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "36497bea-3bfb-4157-9bc6-a95c5b85c9bb",
+      "name": "Claude 3 Opus",
+      "provider": "Anthropic",
+      "type": "LLM",
+      "cost_per_1k_tokens": 15,
+      "cost_tier": "high",
+      "latency_tier": "high",
+      "description": "Most capable Claude model for complex reasoning.",
+      "use_cases": "Research, complex analysis, advanced reasoning.",
+      "industry": [
+        "research",
+        "finance",
+        "healthcare"
+      ],
+      "benchmarks": {
+        "overall": 0.87
+      },
+      "pros": [
+        "Best reasoning",
+        "Very capable"
+      ],
+      "cons": [
+        "Very expensive",
+        "Slow"
+      ],
+      "url": "https://www.anthropic.com",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "4731bf28-5c65-49e5-9bea-2716b2c4a930",
+      "name": "Gemini 1.5 Pro",
+      "provider": "Google",
+      "type": "LLM",
+      "cost_per_1k_tokens": 3.5,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "Advanced multimodal model with long context.",
+      "use_cases": "Complex reasoning, long documents, multimodal tasks.",
+      "industry": [
+        "general",
+        "research",
+        "finance"
+      ],
+      "benchmarks": {
+        "overall": 0.84
+      },
+      "pros": [
+        "Long context",
+        "Multimodal",
+        "Good reasoning"
+      ],
+      "cons": [
+        "Expensive",
+        "Google ecosystem"
+      ],
+      "url": "https://ai.google.dev/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "4eeb8bb4-121a-420e-aa95-8e1b420cc048",
+      "name": "Gemini 1.5 Flash",
+      "provider": "Google",
+      "type": "LLM",
+      "cost_per_1k_tokens": 0.075,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Fast and efficient model for general tasks.",
+      "use_cases": "Quick responses, simple tasks, high volume.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.76
+      },
+      "pros": [
+        "Very fast",
+        "Cost-effective"
+      ],
+      "cons": [
+        "Limited reasoning"
+      ],
+      "url": "https://ai.google.dev/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "6192aa1a-73f4-449a-9b16-cca782e9e0a2",
+      "name": "PaLM 2",
+      "provider": "Google",
+      "type": "LLM",
+      "cost_per_1k_tokens": 1,
+      "cost_tier": "medium",
+      "latency_tier": "medium",
+      "description": "Large language model with strong reasoning capabilities.",
+      "use_cases": "General tasks, reasoning, analysis.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Good reasoning",
+        "Google ecosystem"
+      ],
+      "cons": [
+        "Limited availability"
+      ],
+      "url": "https://ai.google.dev/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "305ff485-0b4d-401f-9f83-f4fde9813045",
+      "name": "Llama 3.1 8B Instruct",
+      "provider": "Meta",
+      "type": "LLM",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Smaller open-source model for edge deployment.",
+      "use_cases": "Edge devices, mobile, resource-constrained environments.",
+      "industry": [
+        "general",
+        "mobile"
+      ],
+      "benchmarks": {
+        "overall": 0.68
+      },
+      "pros": [
+        "Lightweight",
+        "Fast",
+        "Open source"
+      ],
+      "cons": [
+        "Limited capability"
+      ],
+      "url": "https://ai.meta.com/llama/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "c16c185d-b61f-4b7c-a7f2-cf333122d2cd",
+      "name": "Code Llama 70B",
+      "provider": "Meta",
+      "type": "Code",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Specialized model for code generation and understanding.",
+      "use_cases": "Code generation, debugging, code review.",
+      "industry": [
+        "technology",
+        "software"
+      ],
+      "benchmarks": {
+        "overall": 0.82
+      },
+      "pros": [
+        "Code specialized",
+        "Open source"
+      ],
+      "cons": [
+        "Large model size"
+      ],
+      "url": "https://ai.meta.com/llama/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "3e13621e-93e4-48f4-a4ee-46b3b22ad8ba",
+      "name": "Phi-3 Mini",
+      "provider": "Microsoft",
+      "type": "LLM",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Small but capable model for edge deployment.",
+      "use_cases": "Edge devices, mobile applications, quick responses.",
+      "industry": [
+        "general",
+        "mobile"
+      ],
+      "benchmarks": {
+        "overall": 0.72
+      },
+      "pros": [
+        "Small size",
+        "Fast",
+        "Good performance"
+      ],
+      "cons": [
+        "Limited context"
+      ],
+      "url": "https://www.microsoft.com/en-us/ai",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "db028fa9-71dc-4afc-adf0-b2cf540b137e",
+      "name": "Phi-3 Medium",
+      "provider": "Microsoft",
+      "type": "LLM",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Medium-sized model with good reasoning capabilities.",
+      "use_cases": "General tasks, reasoning, analysis.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Good reasoning",
+        "Cost-effective"
+      ],
+      "cons": [
+        "Limited availability"
+      ],
+      "url": "https://www.microsoft.com/en-us/ai",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "5fc4b0a6-5dab-44d7-b114-63495b7f69dc",
+      "name": "Command R+",
+      "provider": "Cohere",
+      "type": "LLM",
+      "cost_per_1k_tokens": 3,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "Advanced model with strong reasoning and tool use.",
+      "use_cases": "Complex reasoning, tool use, enterprise applications.",
+      "industry": [
+        "general",
+        "enterprise"
+      ],
+      "benchmarks": {
+        "overall": 0.81
+      },
+      "pros": [
+        "Strong reasoning",
+        "Tool use",
+        "Enterprise focus"
+      ],
+      "cons": [
+        "Expensive"
+      ],
+      "url": "https://cohere.ai/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "e6d57914-666c-485f-84da-dd86722a7dc5",
+      "name": "Command R",
+      "provider": "Cohere",
+      "type": "LLM",
+      "cost_per_1k_tokens": 0.5,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Fast and efficient model for general tasks.",
+      "use_cases": "Quick responses, simple tasks, high volume.",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.74
+      },
+      "pros": [
+        "Fast",
+        "Cost-effective"
+      ],
+      "cons": [
+        "Limited reasoning"
+      ],
+      "url": "https://cohere.ai/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "a086aadd-14df-411b-bf36-fd8dd6f4895f",
+      "name": "YOLOv9",
+      "provider": "Ultralytics",
+      "type": "Vision",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Latest YOLO model with improved accuracy.",
+      "use_cases": "Object detection, real-time applications.",
+      "industry": [
+        "retail",
+        "manufacturing",
+        "automotive"
+      ],
+      "benchmarks": {
+        "overall": 0.75
+      },
+      "pros": [
+        "Improved accuracy",
+        "Fast"
+      ],
+      "cons": [
+        "New model",
+        "Limited documentation"
+      ],
+      "url": "https://docs.ultralytics.com",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "f259b993-85e7-46ef-b180-5d60e5166412",
+      "name": "DETR",
+      "provider": "Facebook Research",
+      "type": "Vision",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "End-to-end object detection with transformers.",
+      "use_cases": "Object detection, instance segmentation.",
+      "industry": [
+        "research",
+        "automotive"
+      ],
+      "benchmarks": {
+        "overall": 0.72
+      },
+      "pros": [
+        "End-to-end",
+        "Good accuracy"
+      ],
+      "cons": [
+        "Slower than YOLO"
+      ],
+      "url": "https://github.com/facebookresearch/detr",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "ec3c70bb-a6ad-4510-b857-63576320e208",
+      "name": "SAM (Segment Anything)",
+      "provider": "Meta",
+      "type": "Vision",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Foundation model for image segmentation.",
+      "use_cases": "Image segmentation, medical imaging, robotics.",
+      "industry": [
+        "healthcare",
+        "robotics",
+        "research"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Zero-shot segmentation",
+        "Very flexible"
+      ],
+      "cons": [
+        "Computationally intensive"
+      ],
+      "url": "https://segment-anything.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "670385db-a7d8-4db9-8fef-e248a3a75fe4",
+      "name": "Wav2Vec 2.0",
+      "provider": "Facebook Research",
+      "type": "Speech",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Self-supervised speech recognition model.",
+      "use_cases": "Speech recognition, audio processing.",
+      "industry": [
+        "media",
+        "healthcare"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Self-supervised",
+        "Good performance"
+      ],
+      "cons": [
+        "Requires fine-tuning"
+      ],
+      "url": "https://github.com/pytorch/fairseq",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "16a1f488-5032-4d47-bfad-adde56f50705",
+      "name": "Coqui TTS",
+      "provider": "Coqui AI",
+      "type": "Speech",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open-source text-to-speech synthesis.",
+      "use_cases": "TTS applications, voice assistants, accessibility.",
+      "industry": [
+        "media",
+        "accessibility"
+      ],
+      "benchmarks": {
+        "overall": 0.72
+      },
+      "pros": [
+        "Open source",
+        "Customizable"
+      ],
+      "cons": [
+        "Quality varies"
+      ],
+      "url": "https://github.com/coqui-ai/TTS",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "eb38ba6d-c970-4a55-a7c3-f24945fed6ca",
+      "name": "Neural Collaborative Filtering",
+      "provider": "Open-source",
+      "type": "Recommendation",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Deep learning approach to collaborative filtering.",
+      "use_cases": "Modern recommendation systems.",
+      "industry": [
+        "ecommerce",
+        "media"
+      ],
+      "benchmarks": {
+        "overall": 0.65
+      },
+      "pros": [
+        "Deep learning",
+        "Good performance"
+      ],
+      "cons": [
+        "More complex",
+        "Needs more data"
+      ],
+      "url": "https://github.com/hexiangnan/neural_collaborative_filtering",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "8a026f97-c41d-4071-9cb8-84e5061fbd2a",
+      "name": "GPT-4V (Vision)",
+      "provider": "OpenAI",
+      "type": "Multimodal",
+      "cost_per_1k_tokens": 10,
+      "cost_tier": "high",
+      "latency_tier": "high",
+      "description": "Vision-capable GPT-4 model for image understanding.",
+      "use_cases": "Image analysis, visual reasoning, document understanding.",
+      "industry": [
+        "general",
+        "research",
+        "finance"
+      ],
+      "benchmarks": {
+        "overall": 0.86
+      },
+      "pros": [
+        "Excellent vision",
+        "Strong reasoning"
+      ],
+      "cons": [
+        "Very expensive",
+        "Slow"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "495ad697-61e2-4585-b355-7dac00ab42ca",
+      "name": "Claude 3.5 Sonnet (Vision)",
+      "provider": "Anthropic",
+      "type": "Multimodal",
+      "cost_per_1k_tokens": 3,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "Vision-capable Claude model with safety focus.",
+      "use_cases": "Image analysis, visual reasoning, safe content.",
+      "industry": [
+        "general",
+        "healthcare",
+        "finance"
+      ],
+      "benchmarks": {
+        "overall": 0.83
+      },
+      "pros": [
+        "Good vision",
+        "Safety focused"
+      ],
+      "cons": [
+        "Expensive"
+      ],
+      "url": "https://www.anthropic.com",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "c462f3ec-c08d-4b01-bde9-17394efd431c",
+      "name": "Gemini 1.5 Pro (Vision)",
+      "provider": "Google",
+      "type": "Multimodal",
+      "cost_per_1k_tokens": 3.5,
+      "cost_tier": "high",
+      "latency_tier": "medium",
+      "description": "Multimodal model with long context and vision.",
+      "use_cases": "Complex multimodal tasks, long documents with images.",
+      "industry": [
+        "general",
+        "research",
+        "finance"
+      ],
+      "benchmarks": {
+        "overall": 0.84
+      },
+      "pros": [
+        "Long context",
+        "Good vision"
+      ],
+      "cons": [
+        "Expensive",
+        "Google ecosystem"
+      ],
+      "url": "https://ai.google.dev/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "a5d2f64d-6b45-4146-9dc4-e8a5ee29ce3e",
+      "name": "Code Llama 34B",
+      "provider": "Meta",
+      "type": "Code",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Medium-sized code generation model.",
+      "use_cases": "Code generation, debugging, smaller deployments.",
+      "industry": [
+        "technology",
+        "software"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Good performance",
+        "Smaller size"
+      ],
+      "cons": [
+        "Less capable than 70B"
+      ],
+      "url": "https://ai.meta.com/llama/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "330acd76-ece8-4afd-840f-a405f2df7128",
+      "name": "CodeT5+",
+      "provider": "Salesforce",
+      "type": "Code",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Unified pre-trained encoder-decoder model for code.",
+      "use_cases": "Code generation, summarization, translation.",
+      "industry": [
+        "technology",
+        "software"
+      ],
+      "benchmarks": {
+        "overall": 0.75
+      },
+      "pros": [
+        "Unified model",
+        "Good performance"
+      ],
+      "cons": [
+        "Limited availability"
+      ],
+      "url": "https://github.com/salesforce/CodeT5",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "2eead7c7-cdf2-490c-ab5a-077ccf2d90a5",
+      "name": "WizardCoder",
+      "provider": "WizardLM",
+      "type": "Code",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Code generation model trained on instruction data.",
+      "use_cases": "Code generation, programming assistance.",
+      "industry": [
+        "technology",
+        "software"
+      ],
+      "benchmarks": {
+        "overall": 0.79
+      },
+      "pros": [
+        "Good code generation",
+        "Open source"
+      ],
+      "cons": [
+        "Limited documentation"
+      ],
+      "url": "https://github.com/nlpxucan/WizardLM",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "7a1c71a9-74c1-438c-bf89-1d219061507f",
+      "name": "text-embedding-3-large",
+      "provider": "OpenAI",
+      "type": "Embedding",
+      "cost_per_1k_tokens": 0.13,
+      "cost_tier": "medium",
+      "latency_tier": "low",
+      "description": "High-quality text embeddings for semantic search.",
+      "use_cases": "Semantic search, RAG, similarity matching.",
+      "industry": [
+        "general",
+        "search",
+        "ecommerce"
+      ],
+      "benchmarks": {
+        "overall": 0.85
+      },
+      "pros": [
+        "High quality",
+        "Fast",
+        "Reliable"
+      ],
+      "cons": [
+        "Paid API"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "3649a16e-73ba-49cc-8b44-567be5f02a5f",
+      "name": "text-embedding-3-small",
+      "provider": "OpenAI",
+      "type": "Embedding",
+      "cost_per_1k_tokens": 0.02,
+      "cost_tier": "low",
+      "latency_tier": "low",
+      "description": "Fast and efficient text embeddings.",
+      "use_cases": "Quick semantic search, high-volume applications.",
+      "industry": [
+        "general",
+        "search"
+      ],
+      "benchmarks": {
+        "overall": 0.78
+      },
+      "pros": [
+        "Fast",
+        "Cost-effective"
+      ],
+      "cons": [
+        "Lower quality than large"
+      ],
+      "url": "https://platform.openai.com/",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "eae22526-6146-4ce7-9f79-78d74d1550d0",
+      "name": "BGE-Large-EN",
+      "provider": "BAAI",
+      "type": "Embedding",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "High-quality open-source embeddings.",
+      "use_cases": "Semantic search, RAG, similarity matching.",
+      "industry": [
+        "general",
+        "search"
+      ],
+      "benchmarks": {
+        "overall": 0.82
+      },
+      "pros": [
+        "Open source",
+        "High quality"
+      ],
+      "cons": [
+        "Self-hosted only"
+      ],
+      "url": "https://github.com/BAAI/bge-large-en",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "id": "5f135ade-86ff-40ca-b675-84a04260d6b7",
+      "name": "E5-large-v2",
+      "provider": "Microsoft",
+      "type": "Embedding",
+      "cost_per_1k_tokens": null,
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Strong text embeddings for search and retrieval.",
+      "use_cases": "Search, retrieval, similarity matching.",
+      "industry": [
+        "general",
+        "search"
+      ],
+      "benchmarks": {
+        "overall": 0.8
+      },
+      "pros": [
+        "Good performance",
+        "Open source"
+      ],
+      "cons": [
+        "Self-hosted only"
+      ],
+      "url": "https://github.com/microsoft/unilm",
+      "last_updated": "2025-08-25T19:41:31.574Z"
+    },
+    {
+      "name": "deepseek-ai/DeepSeek-V3.1-Base",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, deepseek_v3, text-generation, conversational, custom_code, arxiv:2412.19437, license:mit, autotrain_compatible, text-generation-inference, endpoints_compatible, fp8, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1-Base",
+      "source": "huggingface",
+      "id": "cd2f7160-fd62-4e80-ab39-dac51c474626",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "deepseek-ai/DeepSeek-V3.1",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, deepseek_v3, text-generation, conversational, custom_code, arxiv:2412.19437, license:mit, autotrain_compatible, text-generation-inference, endpoints_compatible, fp8, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+      "source": "huggingface",
+      "id": "1c6c3bd9-85ff-440b-86f7-6ea055c4357e",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "ByteDance-Seed/Seed-OSS-36B-Instruct",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, seed_oss, text-generation, vllm, conversational, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct",
+      "source": "huggingface",
+      "id": "7b1bda79-e054-4fe0-be2c-80a6db41a661",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "google/gemma-3-270m",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, gemma3_text, text-generation, gemma3, gemma, google, arxiv:2503.19786, arxiv:1905.07830, arxiv:1905.10044, arxiv:1911.11641, arxiv:1705.03551, arxiv:1911.01547, arxiv:1907.10641, arxiv:2311.07911, arxiv:2311.12022, arxiv:2411.04368, arxiv:1904.09728, arxiv:1903.00161, arxiv:2009.03300, arxiv:2304.06364, arxiv:2103.03874, arxiv:2110.14168, arxiv:2108.07732, arxiv:2107.03374, arxiv:2403.07974, arxiv:2305.03111, arxiv:2405.04520, arxiv:2210.03057, arxiv:2106.03193, arxiv:1910.11856, arxiv:2502.12404, arxiv:2502.21228, arxiv:2404.16816, arxiv:2104.12756, arxiv:2311.16502, arxiv:2203.10244, arxiv:2404.12390, arxiv:1810.12440, arxiv:1908.02660, arxiv:2310.02255, arxiv:2312.11805, license:gemma, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/google/gemma-3-270m",
+      "source": "huggingface",
+      "id": "c58c5ae4-be55-4d47-b214-6309c28fb2e5",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, nvidia, pytorch, text-generation, conversational, en, es, fr, de, it, ja, dataset:nvidia/Nemotron-Post-Training-Dataset-v1, dataset:nvidia/Nemotron-Post-Training-Dataset-v2, dataset:nvidia/Nemotron-Pretraining-Dataset-sample, dataset:nvidia/Nemotron-CC-v2, dataset:nvidia/Nemotron-CC-Math-v1, dataset:nvidia/Nemotron-Pretraining-SFT-v1, arxiv:2504.03624, arxiv:2508.14444, arxiv:2412.02595, base_model:nvidia/NVIDIA-Nemotron-Nano-12B-v2-Base, base_model:finetune:nvidia/NVIDIA-Nemotron-Nano-12B-v2-Base, license:other, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-9B-v2",
+      "source": "huggingface",
+      "id": "4b279536-1524-45f8-9876-f2656f1a566f",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "openai/gpt-oss-20b",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, gpt_oss, text-generation, vllm, conversational, license:apache-2.0, autotrain_compatible, endpoints_compatible, 8-bit, mxfp4, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/openai/gpt-oss-20b",
+      "source": "huggingface",
+      "id": "549ed231-a028-43b8-8c63-175ffd441eb6",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "openai/gpt-oss-120b",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, gpt_oss, text-generation, vllm, conversational, license:apache-2.0, autotrain_compatible, endpoints_compatible, 8-bit, mxfp4, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/openai/gpt-oss-120b",
+      "source": "huggingface",
+      "id": "41371829-68a5-4aee-b47f-41fbae4dafbc",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "DatarusAI/Datarus-R1-14B-preview",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen2, text-generation, conversational, en, arxiv:2508.13382, base_model:Qwen/Qwen2.5-14B, base_model:finetune:Qwen/Qwen2.5-14B, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/DatarusAI/Datarus-R1-14B-preview",
+      "source": "huggingface",
+      "id": "2df45083-72ac-4134-8b42-c1e00a159323",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "nvidia/canary-1b-v2",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source nemo, automatic-speech-recognition, automatic-speech-translation, speech, audio, Transformer, FastConformer, Conformer, pytorch, NeMo, hf-asr-leaderboard, bg, hr, cs, da, nl, en, et, fi, fr, de, el, hu, it, lv, lt, mt, pl, pt, ro, sk, sl, es, sv, ru, uk, dataset:nvidia/Granary, dataset:nvidia/nemo-asr-set-3.0, arxiv:2505.13404, arxiv:2305.05084, arxiv:1706.03762, arxiv:2410.01036, arxiv:2406.00899, arxiv:2205.12446, arxiv:2012.03411, arxiv:2007.10310, arxiv:2005.08072, arxiv:1510.08484, license:cc-by-4.0, model-index, region:us model",
+      "use_cases": "Speech recognition",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/nvidia/canary-1b-v2",
+      "source": "huggingface",
+      "id": "255167b9-ff91-48cb-b476-92b60fae701f",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "CohereLabs/command-a-reasoning-08-2025",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, cohere2, text-generation, conversational, en, fr, de, es, it, pt, ja, ko, zh, ar, el, fa, pl, id, cs, he, hi, nl, ro, ru, tr, uk, vi, base_model:CohereLabs/c4ai-command-a-03-2025, base_model:finetune:CohereLabs/c4ai-command-a-03-2025, license:cc-by-nc-4.0, autotrain_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/CohereLabs/command-a-reasoning-08-2025",
+      "source": "huggingface",
+      "id": "1f116fdd-dff3-4d3f-85a3-842da237e4ac",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "AIDC-AI/Ovis2.5-9B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, ovis2_5, text-generation, MLLM, image-text-to-text, conversational, custom_code, en, zh, dataset:AIDC-AI/Ovis-dataset, arxiv:2508.11737, arxiv:2405.20797, license:apache-2.0, autotrain_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/AIDC-AI/Ovis2.5-9B",
+      "source": "huggingface",
+      "id": "3c7c36c7-d3c4-48a3-aa38-182f56f24db6",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "google/gemma-3-270m-it",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, gemma3_text, text-generation, gemma3, gemma, google, conversational, arxiv:2503.19786, arxiv:1905.07830, arxiv:1905.10044, arxiv:1911.11641, arxiv:1705.03551, arxiv:1911.01547, arxiv:1907.10641, arxiv:2311.07911, arxiv:2311.12022, arxiv:2411.04368, arxiv:1904.09728, arxiv:1903.00161, arxiv:2009.03300, arxiv:2304.06364, arxiv:2103.03874, arxiv:2110.14168, arxiv:2108.07732, arxiv:2107.03374, arxiv:2403.07974, arxiv:2305.03111, arxiv:2405.04520, arxiv:2210.03057, arxiv:2106.03193, arxiv:1910.11856, arxiv:2502.12404, arxiv:2502.21228, arxiv:2404.16816, arxiv:2104.12756, arxiv:2311.16502, arxiv:2203.10244, arxiv:2404.12390, arxiv:1810.12440, arxiv:1908.02660, arxiv:2310.02255, arxiv:2312.11805, base_model:google/gemma-3-270m, base_model:finetune:google/gemma-3-270m, license:gemma, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/google/gemma-3-270m-it",
+      "source": "huggingface",
+      "id": "f5e25ffa-9e1d-466d-9734-57fda3c756eb",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "nvidia/parakeet-tdt-0.6b-v3",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source nemo, automatic-speech-recognition, speech, audio, Transducer, TDT, FastConformer, Conformer, pytorch, NeMo, hf-asr-leaderboard, en, es, fr, de, bg, hr, cs, da, nl, et, fi, el, hu, it, lv, lt, mt, pl, pt, ro, sk, sl, sv, ru, uk, dataset:nvidia/Granary, dataset:nemo/asr-set-3.0, arxiv:2505.13404, arxiv:2305.05084, arxiv:2304.06795, arxiv:2410.01036, arxiv:2406.00899, arxiv:2205.12446, arxiv:2012.03411, arxiv:2007.10310, arxiv:1510.08484, license:cc-by-4.0, model-index, region:us model",
+      "use_cases": "Speech recognition",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3",
+      "source": "huggingface",
+      "id": "8c1c696f-851b-47b1-a0ec-3cd17b3d523e",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "internlm/Intern-S1-mini",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, interns1, text-generation, image-text-to-text, conversational, custom_code, arxiv:2508.15763, license:apache-2.0, autotrain_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/internlm/Intern-S1-mini",
+      "source": "huggingface",
+      "id": "e0f5b8bf-cdb4-4531-8e29-2ed3840b023c",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-Base",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, nvidia, pytorch, text-generation, en, es, fr, de, ja, it, pt, zh, ar, da, ko, nl, pl, ru, sv, th, dataset:nvidia/Nemotron-Pretraining-Dataset-sample, dataset:nvidia/Nemotron-CC-v2, dataset:nvidia/Nemotron-CC-Math-v1, dataset:nvidia/Nemotron-Pretraining-Code-v1, dataset:nvidia/Nemotron-Pretraining-SFT-v1, arxiv:2508.14444, license:other, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-12B-v2-Base",
+      "source": "huggingface",
+      "id": "8a0bf003-f1b4-4dad-b5a7-b9f79f8ee52c",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "jxm/gpt-oss-20b-base",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, gpt_oss, text-generation, trl, sft, conversational, en, dataset:HuggingFaceFW/fineweb, base_model:openai/gpt-oss-20b, base_model:quantized:openai/gpt-oss-20b, license:mit, autotrain_compatible, endpoints_compatible, 8-bit, mxfp4, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/jxm/gpt-oss-20b-base",
+      "source": "huggingface",
+      "id": "96cd663f-8817-45a7-aa88-d856deb48b8a",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "hexgrad/Kokoro-82M",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source text-to-speech, en, arxiv:2306.07691, arxiv:2203.02395, base_model:yl4579/StyleTTS2-LJSpeech, base_model:finetune:yl4579/StyleTTS2-LJSpeech, doi:10.57967/hf/4329, license:apache-2.0, region:us model",
+      "use_cases": "Text-to-speech",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "source": "huggingface",
+      "id": "14ce23da-b681-4a51-938b-a435059ffeeb",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "zai-org/GLM-4.5",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, glm4_moe, text-generation, conversational, en, zh, arxiv:2508.06471, license:mit, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/zai-org/GLM-4.5",
+      "source": "huggingface",
+      "id": "c5d2025f-558b-4013-ba8d-f56a16f44d37",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "janhq/Jan-v1-4B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3, text-generation, conversational, en, base_model:Qwen/Qwen3-4B-Thinking-2507, base_model:finetune:Qwen/Qwen3-4B-Thinking-2507, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/janhq/Jan-v1-4B",
+      "source": "huggingface",
+      "id": "be3f290a-328a-416c-b119-cf7cd5a951d5",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "AIDC-AI/Ovis2.5-2B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, ovis2_5, text-generation, MLLM, image-text-to-text, conversational, custom_code, en, zh, dataset:AIDC-AI/Ovis-dataset, arxiv:2508.11737, arxiv:2405.20797, license:apache-2.0, autotrain_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/AIDC-AI/Ovis2.5-2B",
+      "source": "huggingface",
+      "id": "8432d88f-11cd-480c-8f58-99e6e5f921ed",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3_moe, text-generation, conversational, arxiv:2505.09388, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "source": "huggingface",
+      "id": "eb01b485-dbb1-45c1-acb0-a5b5aa752e3e",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "nvidia/NVIDIA-Nemotron-Nano-9B-v2-Base",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, nvidia, pytorch, text-generation, en, es, fr, de, ja, it, pt, zh, ar, da, ko, nl, pl, ru, sv, th, dataset:nvidia/Nemotron-Pretraining-Dataset-sample, dataset:nvidia/Nemotron-CC-v2, dataset:nvidia/Nemotron-CC-Math-v1, dataset:nvidia/Nemotron-Pretraining-Code-v1, dataset:nvidia/Nemotron-Pretraining-SFT-v1, arxiv:2508.14444, license:other, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-9B-v2-Base",
+      "source": "huggingface",
+      "id": "472408c9-fec1-4e7d-949d-6b136c8f8603",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "Qwen/Qwen3-Embedding-0.6B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source sentence-transformers, safetensors, qwen3, text-generation, transformers, sentence-similarity, feature-extraction, text-embeddings-inference, arxiv:2506.05176, base_model:Qwen/Qwen3-0.6B-Base, base_model:finetune:Qwen/Qwen3-0.6B-Base, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+      "source": "huggingface",
+      "id": "db87e169-cdf4-4cdb-826d-3230b76f82b2",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "openai/whisper-large-v3",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, pytorch, jax, safetensors, whisper, automatic-speech-recognition, audio, hf-asr-leaderboard, en, zh, de, es, ru, ko, fr, ja, pt, tr, pl, ca, nl, ar, sv, it, id, hi, fi, vi, he, uk, el, ms, cs, ro, da, hu, ta, no, th, ur, hr, bg, lt, la, mi, ml, cy, sk, te, fa, lv, bn, sr, az, sl, kn, et, mk, br, eu, is, hy, ne, mn, bs, kk, sq, sw, gl, mr, pa, si, km, sn, yo, so, af, oc, ka, be, tg, sd, gu, am, yi, lo, uz, fo, ht, ps, tk, nn, mt, sa, lb, my, bo, tl, mg, as, tt, haw, ln, ha, ba, jw, su, arxiv:2212.04356, license:apache-2.0, endpoints_compatible, region:us model",
+      "use_cases": "Speech recognition",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/openai/whisper-large-v3",
+      "source": "huggingface",
+      "id": "da59196a-5511-4be7-a91a-a0c53b1f04d7",
+      "last_updated": "2025-08-25T19:42:18.318Z"
+    },
+    {
+      "name": "deepseek-ai/DeepSeek-R1",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, deepseek_v3, text-generation, conversational, custom_code, arxiv:2501.12948, license:mit, autotrain_compatible, text-generation-inference, endpoints_compatible, fp8, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+      "source": "huggingface",
+      "id": "79c2613f-c02c-4005-85f6-57b7abcbf6a7",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "DavidAU/OpenAi-GPT-oss-20b-abliterated-uncensored-NEO-Imatrix-gguf",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source gguf, gpt_oss, gpt-oss, openai, mxfp4, programming, code generation, code, coding, coder, chat, reasoning, thinking, r1, cot, deepseek, 128k context, general usage, problem solving, brainstorming, solve riddles, uncensored, abliterated, Neo, MOE, Mixture of Experts, 24 experts, NEO Imatrix, Imatrix, DI-Matrix, Tri-Matrix, text-generation, en, base_model:huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated, base_model:quantized:huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated, license:apache-2.0, endpoints_compatible, region:us, imatrix, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/DavidAU/OpenAi-GPT-oss-20b-abliterated-uncensored-NEO-Imatrix-gguf",
+      "source": "huggingface",
+      "id": "1d183ac9-a60c-49d5-9f3b-c16fe9076848",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "meta-llama/Llama-3.1-8B-Instruct",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, facebook, meta, pytorch, llama-3, conversational, en, de, fr, it, pt, hi, es, th, arxiv:2204.05149, base_model:meta-llama/Llama-3.1-8B, base_model:finetune:meta-llama/Llama-3.1-8B, license:llama3.1, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "source": "huggingface",
+      "id": "68bc1648-1ef6-4123-bd67-f20dd877d868",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "coqui/XTTS-v2",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source coqui, text-to-speech, license:other, region:us model",
+      "use_cases": "Text-to-speech",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/coqui/XTTS-v2",
+      "source": "huggingface",
+      "id": "10223471-e558-4ad7-88b3-688b26e2e5e4",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3_moe, text-generation, conversational, arxiv:2505.09388, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "source": "huggingface",
+      "id": "794eb546-10bf-4d2a-abcf-6ca1a2e235a4",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Qwen/Qwen3-4B-Thinking-2507",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3, text-generation, conversational, arxiv:2505.09388, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507",
+      "source": "huggingface",
+      "id": "9bfa2546-1c58-4312-8781-3988488af306",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "moonshotai/Kimi-K2-Instruct",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, kimi_k2, text-generation, conversational, custom_code, doi:10.57967/hf/5976, license:other, autotrain_compatible, endpoints_compatible, fp8, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
+      "source": "huggingface",
+      "id": "0ba8d880-50df-411b-b965-f736c3a3b841",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3_moe, text-generation, conversational, arxiv:2402.17463, arxiv:2407.02490, arxiv:2501.15383, arxiv:2404.06654, arxiv:2505.09388, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "source": "huggingface",
+      "id": "f5675c0f-251f-4a9f-a954-180b688ac7dc",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Qwen/Qwen3-4B-Instruct-2507",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3, text-generation, conversational, arxiv:2505.09388, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
+      "source": "huggingface",
+      "id": "fa09ecbf-6a92-43c1-803b-0b424d0c50f7",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "unsloth/gemma-3-270m-it-GGUF",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, gguf, gemma3, unsloth, gemma, google, text-generation, arxiv:2503.19786, arxiv:1905.07830, arxiv:1905.10044, arxiv:1911.11641, arxiv:1705.03551, arxiv:1911.01547, arxiv:1907.10641, arxiv:2311.07911, arxiv:2311.12022, arxiv:2411.04368, arxiv:1904.09728, arxiv:1903.00161, arxiv:2009.03300, arxiv:2304.06364, arxiv:2103.03874, arxiv:2110.14168, arxiv:2108.07732, arxiv:2107.03374, arxiv:2403.07974, arxiv:2305.03111, arxiv:2405.04520, arxiv:2210.03057, arxiv:2106.03193, arxiv:1910.11856, arxiv:2502.12404, arxiv:2502.21228, arxiv:2404.16816, arxiv:2104.12756, arxiv:2311.16502, arxiv:2203.10244, arxiv:2404.12390, arxiv:1810.12440, arxiv:1908.02660, arxiv:2310.02255, arxiv:2312.11805, base_model:google/gemma-3-270m-it, base_model:quantized:google/gemma-3-270m-it, license:gemma, endpoints_compatible, region:us, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/unsloth/gemma-3-270m-it-GGUF",
+      "source": "huggingface",
+      "id": "465ede1d-d342-40d3-b1aa-395052fd953a",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, gguf, unsloth, qwen3, qwen, text-generation, arxiv:2505.09388, base_model:Qwen/Qwen3-Coder-30B-A3B-Instruct, base_model:quantized:Qwen/Qwen3-Coder-30B-A3B-Instruct, license:apache-2.0, endpoints_compatible, region:us, imatrix, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+      "source": "huggingface",
+      "id": "512fb5db-3ca5-45f8-903a-8345e3ef175f",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "unsloth/gpt-oss-20b-GGUF",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, gguf, gpt_oss, text-generation, openai, unsloth, base_model:openai/gpt-oss-20b, base_model:quantized:openai/gpt-oss-20b, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/unsloth/gpt-oss-20b-GGUF",
+      "source": "huggingface",
+      "id": "86a2e1ba-fd14-4f70-bc5b-edabd1d5c9aa",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Falconsai/nsfw_image_detection",
+      "provider": "Hugging Face",
+      "type": "Vision",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, pytorch, safetensors, vit, image-classification, arxiv:2010.11929, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Image classification",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Falconsai/nsfw_image_detection",
+      "source": "huggingface",
+      "id": "0635037a-f4d1-4fed-85a0-a84ce2b6261c",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "ResembleAI/chatterbox",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source chatterbox, text-to-speech, speech generation, voice-cloning, en, license:mit, region:us model",
+      "use_cases": "Text-to-speech",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/ResembleAI/chatterbox",
+      "source": "huggingface",
+      "id": "17a2ab45-9803-4806-a514-71e7ff3b5dc3",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "pyannote/speaker-diarization-3.1",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source pyannote-audio, pyannote, pyannote-audio-pipeline, audio, voice, speech, speaker, speaker-diarization, speaker-change-detection, voice-activity-detection, overlapped-speech-detection, automatic-speech-recognition, arxiv:2111.14448, arxiv:2012.01477, license:mit, endpoints_compatible, region:us model",
+      "use_cases": "Speech recognition",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/pyannote/speaker-diarization-3.1",
+      "source": "huggingface",
+      "id": "8347d110-0b43-41a6-8c5f-b34933656a2d",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "vhdm/whisper-large-fa-v1",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, tensorboard, safetensors, whisper, automatic-speech-recognition, whisper-large-v3, persian, farsi, speech-recognition, asr, audio, generated_from_trainer, h100, huggingface, vhdm, fa, dataset:vhdm/persian-voice-v1.1, base_model:openai/whisper-large-v3-turbo, base_model:finetune:openai/whisper-large-v3-turbo, license:mit, model-index, endpoints_compatible, region:us model",
+      "use_cases": "Speech recognition",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/vhdm/whisper-large-fa-v1",
+      "source": "huggingface",
+      "id": "a16a88dd-5194-4649-a1a2-e97fd068fac3",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "LiquidAI/LFM2-1.2B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, lfm2, text-generation, liquid, edge, conversational, en, ar, zh, fr, de, ja, ko, es, license:other, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/LiquidAI/LFM2-1.2B",
+      "source": "huggingface",
+      "id": "e8922dd2-4ee1-49ea-8c22-11df2b794203",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "meta-llama/Llama-3.2-1B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, facebook, meta, pytorch, llama-3, en, de, fr, it, pt, hi, es, th, arxiv:2204.05149, arxiv:2405.16406, license:llama3.2, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/meta-llama/Llama-3.2-1B",
+      "source": "huggingface",
+      "id": "6d4983f8-e0a2-487a-910f-7346aa81007d",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "deepseek-ai/DeepSeek-V3-0324",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, deepseek_v3, text-generation, conversational, custom_code, arxiv:2412.19437, license:mit, autotrain_compatible, text-generation-inference, endpoints_compatible, fp8, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324",
+      "source": "huggingface",
+      "id": "f6ca8783-2f2c-4cd5-adb2-14b6dd89023e",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Qwen/Qwen3-Embedding-8B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source sentence-transformers, safetensors, qwen3, text-generation, transformers, sentence-similarity, feature-extraction, text-embeddings-inference, arxiv:2506.05176, base_model:Qwen/Qwen3-8B-Base, base_model:finetune:Qwen/Qwen3-8B-Base, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-Embedding-8B",
+      "source": "huggingface",
+      "id": "68adea55-890e-4086-bea2-5e0227c26f5c",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "bosonai/higgs-audio-v2-generation-3B-base",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source safetensors, higgs_audio, text-to-speech, en, zh, de, ko, arxiv:2505.23009, license:other, region:us model",
+      "use_cases": "Text-to-speech",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/bosonai/higgs-audio-v2-generation-3B-base",
+      "source": "huggingface",
+      "id": "8a15a39f-edd5-4a18-bf9f-21757d4bd4ca",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "zai-org/GLM-4.5-Air",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, glm4_moe, text-generation, conversational, en, zh, arxiv:2508.06471, license:mit, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/zai-org/GLM-4.5-Air",
+      "source": "huggingface",
+      "id": "219d0595-6569-491f-b214-a275b11e89ac",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "yarikdevcom/Seed-OSS-36B-Instruct-GGUF",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source gguf, text-generation, base_model:ByteDance-Seed/Seed-OSS-36B-Instruct, base_model:quantized:ByteDance-Seed/Seed-OSS-36B-Instruct, license:apache-2.0, endpoints_compatible, region:us, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/yarikdevcom/Seed-OSS-36B-Instruct-GGUF",
+      "source": "huggingface",
+      "id": "f163c108-fed5-416b-a828-69967903f413",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "unsloth/Seed-OSS-36B-Instruct-GGUF",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, gguf, vllm, unsloth, text-generation, base_model:ByteDance-Seed/Seed-OSS-36B-Instruct, base_model:quantized:ByteDance-Seed/Seed-OSS-36B-Instruct, license:apache-2.0, endpoints_compatible, region:us, imatrix, conversational model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/unsloth/Seed-OSS-36B-Instruct-GGUF",
+      "source": "huggingface",
+      "id": "6b54aafb-9809-4e2b-918c-1d3a90e106b3",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "Qwen/Qwen3-8B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3, text-generation, conversational, arxiv:2309.00071, arxiv:2505.09388, base_model:Qwen/Qwen3-8B-Base, base_model:finetune:Qwen/Qwen3-8B-Base, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-8B",
+      "source": "huggingface",
+      "id": "2922bb7c-9f60-4bc5-9693-4fb969271a23",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    },
+    {
+      "name": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3, text-generation, conversational, arxiv:2501.12948, license:mit, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "source": "huggingface",
+      "id": "92f6e20a-4d0f-4a22-a9e6-025cf8cb1ec5",
+      "last_updated": "2025-08-25T19:42:18.319Z"
+    }
+  ],
+  "bookmarks": []
+}

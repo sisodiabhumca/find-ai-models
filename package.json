@@ -1,0 +1,24 @@
+{
+  "name": "ai-model-recommender",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "seed": "node scripts/seed.js",
+    "seed-comprehensive": "node scripts/comprehensive-models.js",
+    "discover": "node scripts/model-discovery.js",
+    "scheduler": "node scripts/scheduler.js",
+    "start-discovery": "node scripts/scheduler.js"
+  },
+  "dependencies": {
+    "lowdb": "^7.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "json2csv": "^6.0.0-alpha.2",
+    "pdfkit": "^0.15.0",
+    "uuid": "^9.0.1",
+    "node-fetch": "^3.3.2",
+    "node-cron": "^3.0.3"
+  }
+}

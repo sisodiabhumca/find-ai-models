@@ -1,0 +1,672 @@
+import { initDb, getDb } from '../src/db.js';
+import { v4 as uuidv4 } from 'uuid';
+
+await initDb();
+const db = getDb();
+
+function upsertModel(m) {
+  const idx = (db.data.models || []).findIndex(x => x.name === m.name && x.provider === m.provider);
+  if (idx !== -1) {
+    const existing = db.data.models[idx];
+    db.data.models[idx] = {
+      ...existing,
+      type: m.type,
+      cost_per_1k_tokens: m.cost_per_1k_tokens ?? null,
+      cost_tier: m.cost_tier ?? null,
+      latency_tier: m.latency_tier ?? null,
+      description: m.description ?? null,
+      use_cases: m.use_cases ?? null,
+      industry: m.industry ?? [],
+      benchmarks: m.benchmarks ?? {},
+      pros: m.pros ?? [],
+      cons: m.cons ?? [],
+      url: m.url ?? null,
+      last_updated: new Date().toISOString(),
+    };
+    return existing.id;
+  }
+  const id = uuidv4();
+  db.data.models.push({
+    id,
+    name: m.name,
+    provider: m.provider,
+    type: m.type,
+    cost_per_1k_tokens: m.cost_per_1k_tokens ?? null,
+    cost_tier: m.cost_tier ?? null,
+    latency_tier: m.latency_tier ?? null,
+    description: m.description ?? null,
+    use_cases: m.use_cases ?? null,
+    industry: m.industry ?? [],
+    benchmarks: m.benchmarks ?? {},
+    pros: m.pros ?? [],
+    cons: m.cons ?? [],
+    url: m.url ?? null,
+    last_updated: new Date().toISOString(),
+  });
+  return id;
+}
+
+const comprehensiveModels = [
+  // OpenAI Models
+  {
+    name: 'GPT-4o',
+    provider: 'OpenAI',
+    type: 'LLM',
+    cost_per_1k_tokens: 5.0,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'Most capable multimodal model for complex reasoning and analysis.',
+    use_cases: 'Advanced reasoning, complex analysis, multimodal tasks, research.',
+    industry: ['general', 'research', 'finance', 'healthcare'],
+    benchmarks: { overall: 0.88 },
+    pros: ['Most capable', 'Multimodal', 'Excellent reasoning'],
+    cons: ['Expensive', 'Slower than smaller models'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'GPT-4o mini',
+    provider: 'OpenAI',
+    type: 'LLM',
+    cost_per_1k_tokens: 0.15,
+    cost_tier: 'medium',
+    latency_tier: 'low',
+    description: 'Lightweight multimodal model suitable for chat, reasoning, and tool-use with good speed/cost balance.',
+    use_cases: 'Customer support, content drafting, code assistance, lightweight RAG.',
+    industry: ['general'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Fast', 'Good reasoning', 'Broad ecosystem'],
+    cons: ['Paid API', 'Data privacy considerations'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'GPT-4 Turbo',
+    provider: 'OpenAI',
+    type: 'LLM',
+    cost_per_1k_tokens: 10.0,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'High-performance model with extended context window.',
+    use_cases: 'Long-form content, complex analysis, research.',
+    industry: ['general', 'research', 'finance'],
+    benchmarks: { overall: 0.85 },
+    pros: ['Extended context', 'High performance'],
+    cons: ['Very expensive', 'Slower'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'GPT-3.5 Turbo',
+    provider: 'OpenAI',
+    type: 'LLM',
+    cost_per_1k_tokens: 0.5,
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Fast and efficient model for general tasks.',
+    use_cases: 'Chat applications, simple tasks, prototyping.',
+    industry: ['general'],
+    benchmarks: { overall: 0.65 },
+    pros: ['Fast', 'Cost-effective', 'Reliable'],
+    cons: ['Limited reasoning', 'No multimodal'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'Whisper Large-v3',
+    provider: 'OpenAI',
+    type: 'Speech',
+    cost_per_1k_tokens: null,
+    cost_tier: 'medium',
+    latency_tier: 'medium',
+    description: 'State-of-the-art speech recognition and translation model.',
+    use_cases: 'Transcription, voice analytics, captions.',
+    industry: ['media', 'healthcare'],
+    benchmarks: { overall: 0.85 },
+    pros: ['Accurate', 'Multilingual'],
+    cons: ['GPU costs for self-hosting'],
+    url: 'https://github.com/openai/whisper'
+  },
+  {
+    name: 'DALL-E 3',
+    provider: 'OpenAI',
+    type: 'Image Generation',
+    cost_per_1k_tokens: 0.04,
+    cost_tier: 'medium',
+    latency_tier: 'medium',
+    description: 'Advanced image generation model with high quality and safety.',
+    use_cases: 'Creative content, marketing, design.',
+    industry: ['media', 'marketing', 'design'],
+    benchmarks: { overall: 0.82 },
+    pros: ['High quality', 'Safe', 'Easy to use'],
+    cons: ['Limited control', 'Cost per image'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'CLIP',
+    provider: 'OpenAI',
+    type: 'Vision',
+    cost_per_1k_tokens: null,
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Connects text and images for zero-shot classification and retrieval.',
+    use_cases: 'Search, tagging, moderation.',
+    industry: ['media', 'ecommerce'],
+    benchmarks: { overall: 0.68 },
+    pros: ['Zero-shot', 'Open weights'],
+    cons: ['Not for detection/segmentation'],
+    url: 'https://openai.com/research/clip'
+  },
+
+  // Anthropic Models
+  {
+    name: 'Claude 3.5 Sonnet',
+    provider: 'Anthropic',
+    type: 'LLM',
+    cost_per_1k_tokens: 3.0,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'High capability LLM focused on safety and reasoning quality.',
+    use_cases: 'Analysis, drafting, support with focus on safety.',
+    industry: ['general', 'healthcare', 'finance'],
+    benchmarks: { overall: 0.82 },
+    pros: ['Strong safety', 'Great reasoning'],
+    cons: ['Higher cost'],
+    url: 'https://www.anthropic.com'
+  },
+  {
+    name: 'Claude 3.5 Haiku',
+    provider: 'Anthropic',
+    type: 'LLM',
+    cost_per_1k_tokens: 0.25,
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Fast and efficient model for simple tasks.',
+    use_cases: 'Quick responses, simple queries, high-volume tasks.',
+    industry: ['general'],
+    benchmarks: { overall: 0.72 },
+    pros: ['Very fast', 'Cost-effective'],
+    cons: ['Limited reasoning'],
+    url: 'https://www.anthropic.com'
+  },
+  {
+    name: 'Claude 3 Opus',
+    provider: 'Anthropic',
+    type: 'LLM',
+    cost_per_1k_tokens: 15.0,
+    cost_tier: 'high',
+    latency_tier: 'high',
+    description: 'Most capable Claude model for complex reasoning.',
+    use_cases: 'Research, complex analysis, advanced reasoning.',
+    industry: ['research', 'finance', 'healthcare'],
+    benchmarks: { overall: 0.87 },
+    pros: ['Best reasoning', 'Very capable'],
+    cons: ['Very expensive', 'Slow'],
+    url: 'https://www.anthropic.com'
+  },
+
+  // Google Models
+  {
+    name: 'Gemini 1.5 Pro',
+    provider: 'Google',
+    type: 'LLM',
+    cost_per_1k_tokens: 3.5,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'Advanced multimodal model with long context.',
+    use_cases: 'Complex reasoning, long documents, multimodal tasks.',
+    industry: ['general', 'research', 'finance'],
+    benchmarks: { overall: 0.84 },
+    pros: ['Long context', 'Multimodal', 'Good reasoning'],
+    cons: ['Expensive', 'Google ecosystem'],
+    url: 'https://ai.google.dev/'
+  },
+  {
+    name: 'Gemini 1.5 Flash',
+    provider: 'Google',
+    type: 'LLM',
+    cost_per_1k_tokens: 0.075,
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Fast and efficient model for general tasks.',
+    use_cases: 'Quick responses, simple tasks, high volume.',
+    industry: ['general'],
+    benchmarks: { overall: 0.76 },
+    pros: ['Very fast', 'Cost-effective'],
+    cons: ['Limited reasoning'],
+    url: 'https://ai.google.dev/'
+  },
+  {
+    name: 'PaLM 2',
+    provider: 'Google',
+    type: 'LLM',
+    cost_per_1k_tokens: 1.0,
+    cost_tier: 'medium',
+    latency_tier: 'medium',
+    description: 'Large language model with strong reasoning capabilities.',
+    use_cases: 'General tasks, reasoning, analysis.',
+    industry: ['general'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Good reasoning', 'Google ecosystem'],
+    cons: ['Limited availability'],
+    url: 'https://ai.google.dev/'
+  },
+
+  // Meta Models
+  {
+    name: 'Llama 3.1 70B Instruct',
+    provider: 'Meta',
+    type: 'LLM',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Open-source instruction-tuned model good for on-prem or private deployments.',
+    use_cases: 'Private chat, internal automation, RAG.',
+    industry: ['general'],
+    benchmarks: { overall: 0.75 },
+    pros: ['Open source', 'Self-hostable'],
+    cons: ['Infra/ops overhead'],
+    url: 'https://ai.meta.com/llama/'
+  },
+  {
+    name: 'Llama 3.1 8B Instruct',
+    provider: 'Meta',
+    type: 'LLM',
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Smaller open-source model for edge deployment.',
+    use_cases: 'Edge devices, mobile, resource-constrained environments.',
+    industry: ['general', 'mobile'],
+    benchmarks: { overall: 0.68 },
+    pros: ['Lightweight', 'Fast', 'Open source'],
+    cons: ['Limited capability'],
+    url: 'https://ai.meta.com/llama/'
+  },
+  {
+    name: 'Code Llama 70B',
+    provider: 'Meta',
+    type: 'Code',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Specialized model for code generation and understanding.',
+    use_cases: 'Code generation, debugging, code review.',
+    industry: ['technology', 'software'],
+    benchmarks: { overall: 0.82 },
+    pros: ['Code specialized', 'Open source'],
+    cons: ['Large model size'],
+    url: 'https://ai.meta.com/llama/'
+  },
+
+  // Microsoft Models
+  {
+    name: 'Phi-3 Mini',
+    provider: 'Microsoft',
+    type: 'LLM',
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Small but capable model for edge deployment.',
+    use_cases: 'Edge devices, mobile applications, quick responses.',
+    industry: ['general', 'mobile'],
+    benchmarks: { overall: 0.72 },
+    pros: ['Small size', 'Fast', 'Good performance'],
+    cons: ['Limited context'],
+    url: 'https://www.microsoft.com/en-us/ai'
+  },
+  {
+    name: 'Phi-3 Medium',
+    provider: 'Microsoft',
+    type: 'LLM',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Medium-sized model with good reasoning capabilities.',
+    use_cases: 'General tasks, reasoning, analysis.',
+    industry: ['general'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Good reasoning', 'Cost-effective'],
+    cons: ['Limited availability'],
+    url: 'https://www.microsoft.com/en-us/ai'
+  },
+
+  // Cohere Models
+  {
+    name: 'Command R+',
+    provider: 'Cohere',
+    type: 'LLM',
+    cost_per_1k_tokens: 3.0,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'Advanced model with strong reasoning and tool use.',
+    use_cases: 'Complex reasoning, tool use, enterprise applications.',
+    industry: ['general', 'enterprise'],
+    benchmarks: { overall: 0.81 },
+    pros: ['Strong reasoning', 'Tool use', 'Enterprise focus'],
+    cons: ['Expensive'],
+    url: 'https://cohere.ai/'
+  },
+  {
+    name: 'Command R',
+    provider: 'Cohere',
+    type: 'LLM',
+    cost_per_1k_tokens: 0.5,
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Fast and efficient model for general tasks.',
+    use_cases: 'Quick responses, simple tasks, high volume.',
+    industry: ['general'],
+    benchmarks: { overall: 0.74 },
+    pros: ['Fast', 'Cost-effective'],
+    cons: ['Limited reasoning'],
+    url: 'https://cohere.ai/'
+  },
+
+  // Vision Models
+  {
+    name: 'YOLOv8',
+    provider: 'Ultralytics',
+    type: 'Vision',
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Real-time object detection model family.',
+    use_cases: 'Retail analytics, inspection, security.',
+    industry: ['retail', 'manufacturing'],
+    benchmarks: { overall: 0.7 },
+    pros: ['Fast', 'Edge-friendly'],
+    cons: ['Requires dataset-specific fine-tuning'],
+    url: 'https://docs.ultralytics.com'
+  },
+  {
+    name: 'YOLOv9',
+    provider: 'Ultralytics',
+    type: 'Vision',
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Latest YOLO model with improved accuracy.',
+    use_cases: 'Object detection, real-time applications.',
+    industry: ['retail', 'manufacturing', 'automotive'],
+    benchmarks: { overall: 0.75 },
+    pros: ['Improved accuracy', 'Fast'],
+    cons: ['New model', 'Limited documentation'],
+    url: 'https://docs.ultralytics.com'
+  },
+  {
+    name: 'DETR',
+    provider: 'Facebook Research',
+    type: 'Vision',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'End-to-end object detection with transformers.',
+    use_cases: 'Object detection, instance segmentation.',
+    industry: ['research', 'automotive'],
+    benchmarks: { overall: 0.72 },
+    pros: ['End-to-end', 'Good accuracy'],
+    cons: ['Slower than YOLO'],
+    url: 'https://github.com/facebookresearch/detr'
+  },
+  {
+    name: 'SAM (Segment Anything)',
+    provider: 'Meta',
+    type: 'Vision',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Foundation model for image segmentation.',
+    use_cases: 'Image segmentation, medical imaging, robotics.',
+    industry: ['healthcare', 'robotics', 'research'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Zero-shot segmentation', 'Very flexible'],
+    cons: ['Computationally intensive'],
+    url: 'https://segment-anything.com/'
+  },
+
+  // Speech Models
+  {
+    name: 'Whisper Large-v3',
+    provider: 'OpenAI',
+    type: 'Speech',
+    cost_tier: 'medium',
+    latency_tier: 'medium',
+    description: 'State-of-the-art speech recognition and translation model.',
+    use_cases: 'Transcription, voice analytics, captions.',
+    industry: ['media', 'healthcare'],
+    benchmarks: { overall: 0.85 },
+    pros: ['Accurate', 'Multilingual'],
+    cons: ['GPU costs for self-hosting'],
+    url: 'https://github.com/openai/whisper'
+  },
+  {
+    name: 'Wav2Vec 2.0',
+    provider: 'Facebook Research',
+    type: 'Speech',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Self-supervised speech recognition model.',
+    use_cases: 'Speech recognition, audio processing.',
+    industry: ['media', 'healthcare'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Self-supervised', 'Good performance'],
+    cons: ['Requires fine-tuning'],
+    url: 'https://github.com/pytorch/fairseq'
+  },
+  {
+    name: 'Coqui TTS',
+    provider: 'Coqui AI',
+    type: 'Speech',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Open-source text-to-speech synthesis.',
+    use_cases: 'TTS applications, voice assistants, accessibility.',
+    industry: ['media', 'accessibility'],
+    benchmarks: { overall: 0.72 },
+    pros: ['Open source', 'Customizable'],
+    cons: ['Quality varies'],
+    url: 'https://github.com/coqui-ai/TTS'
+  },
+
+  // Recommendation Models
+  {
+    name: 'LightFM',
+    provider: 'Open-source',
+    type: 'Recommendation',
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Hybrid recommendation algorithm (content + collaborative).',
+    use_cases: 'Personalization, product recommendation.',
+    industry: ['ecommerce', 'media'],
+    benchmarks: { overall: 0.6 },
+    pros: ['Simple', 'Efficient'],
+    cons: ['Limited deep personalization'],
+    url: 'https://github.com/lyst/lightfm'
+  },
+  {
+    name: 'Implicit ALS',
+    provider: 'Ben Frederickson',
+    type: 'Recommendation',
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Alternating least squares for implicit feedback data.',
+    use_cases: 'Large-scale recommendation with implicit feedback.',
+    industry: ['ecommerce', 'media'],
+    benchmarks: { overall: 0.58 },
+    pros: ['Scales well'],
+    cons: ['Needs tuning', 'Cold-start issues'],
+    url: 'https://github.com/benfred/implicit'
+  },
+  {
+    name: 'Neural Collaborative Filtering',
+    provider: 'Open-source',
+    type: 'Recommendation',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Deep learning approach to collaborative filtering.',
+    use_cases: 'Modern recommendation systems.',
+    industry: ['ecommerce', 'media'],
+    benchmarks: { overall: 0.65 },
+    pros: ['Deep learning', 'Good performance'],
+    cons: ['More complex', 'Needs more data'],
+    url: 'https://github.com/hexiangnan/neural_collaborative_filtering'
+  },
+
+  // Multimodal Models
+  {
+    name: 'GPT-4V (Vision)',
+    provider: 'OpenAI',
+    type: 'Multimodal',
+    cost_per_1k_tokens: 10.0,
+    cost_tier: 'high',
+    latency_tier: 'high',
+    description: 'Vision-capable GPT-4 model for image understanding.',
+    use_cases: 'Image analysis, visual reasoning, document understanding.',
+    industry: ['general', 'research', 'finance'],
+    benchmarks: { overall: 0.86 },
+    pros: ['Excellent vision', 'Strong reasoning'],
+    cons: ['Very expensive', 'Slow'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'Claude 3.5 Sonnet (Vision)',
+    provider: 'Anthropic',
+    type: 'Multimodal',
+    cost_per_1k_tokens: 3.0,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'Vision-capable Claude model with safety focus.',
+    use_cases: 'Image analysis, visual reasoning, safe content.',
+    industry: ['general', 'healthcare', 'finance'],
+    benchmarks: { overall: 0.83 },
+    pros: ['Good vision', 'Safety focused'],
+    cons: ['Expensive'],
+    url: 'https://www.anthropic.com'
+  },
+  {
+    name: 'Gemini 1.5 Pro (Vision)',
+    provider: 'Google',
+    type: 'Multimodal',
+    cost_per_1k_tokens: 3.5,
+    cost_tier: 'high',
+    latency_tier: 'medium',
+    description: 'Multimodal model with long context and vision.',
+    use_cases: 'Complex multimodal tasks, long documents with images.',
+    industry: ['general', 'research', 'finance'],
+    benchmarks: { overall: 0.84 },
+    pros: ['Long context', 'Good vision'],
+    cons: ['Expensive', 'Google ecosystem'],
+    url: 'https://ai.google.dev/'
+  },
+
+  // Code Models
+  {
+    name: 'Code Llama 70B',
+    provider: 'Meta',
+    type: 'Code',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Specialized model for code generation and understanding.',
+    use_cases: 'Code generation, debugging, code review.',
+    industry: ['technology', 'software'],
+    benchmarks: { overall: 0.82 },
+    pros: ['Code specialized', 'Open source'],
+    cons: ['Large model size'],
+    url: 'https://ai.meta.com/llama/'
+  },
+  {
+    name: 'Code Llama 34B',
+    provider: 'Meta',
+    type: 'Code',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Medium-sized code generation model.',
+    use_cases: 'Code generation, debugging, smaller deployments.',
+    industry: ['technology', 'software'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Good performance', 'Smaller size'],
+    cons: ['Less capable than 70B'],
+    url: 'https://ai.meta.com/llama/'
+  },
+  {
+    name: 'CodeT5+',
+    provider: 'Salesforce',
+    type: 'Code',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Unified pre-trained encoder-decoder model for code.',
+    use_cases: 'Code generation, summarization, translation.',
+    industry: ['technology', 'software'],
+    benchmarks: { overall: 0.75 },
+    pros: ['Unified model', 'Good performance'],
+    cons: ['Limited availability'],
+    url: 'https://github.com/salesforce/CodeT5'
+  },
+  {
+    name: 'WizardCoder',
+    provider: 'WizardLM',
+    type: 'Code',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Code generation model trained on instruction data.',
+    use_cases: 'Code generation, programming assistance.',
+    industry: ['technology', 'software'],
+    benchmarks: { overall: 0.79 },
+    pros: ['Good code generation', 'Open source'],
+    cons: ['Limited documentation'],
+    url: 'https://github.com/nlpxucan/WizardLM'
+  },
+
+  // Embedding Models
+  {
+    name: 'text-embedding-3-large',
+    provider: 'OpenAI',
+    type: 'Embedding',
+    cost_per_1k_tokens: 0.13,
+    cost_tier: 'medium',
+    latency_tier: 'low',
+    description: 'High-quality text embeddings for semantic search.',
+    use_cases: 'Semantic search, RAG, similarity matching.',
+    industry: ['general', 'search', 'ecommerce'],
+    benchmarks: { overall: 0.85 },
+    pros: ['High quality', 'Fast', 'Reliable'],
+    cons: ['Paid API'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'text-embedding-3-small',
+    provider: 'OpenAI',
+    type: 'Embedding',
+    cost_per_1k_tokens: 0.02,
+    cost_tier: 'low',
+    latency_tier: 'low',
+    description: 'Fast and efficient text embeddings.',
+    use_cases: 'Quick semantic search, high-volume applications.',
+    industry: ['general', 'search'],
+    benchmarks: { overall: 0.78 },
+    pros: ['Fast', 'Cost-effective'],
+    cons: ['Lower quality than large'],
+    url: 'https://platform.openai.com/'
+  },
+  {
+    name: 'BGE-Large-EN',
+    provider: 'BAAI',
+    type: 'Embedding',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'High-quality open-source embeddings.',
+    use_cases: 'Semantic search, RAG, similarity matching.',
+    industry: ['general', 'search'],
+    benchmarks: { overall: 0.82 },
+    pros: ['Open source', 'High quality'],
+    cons: ['Self-hosted only'],
+    url: 'https://github.com/BAAI/bge-large-en'
+  },
+  {
+    name: 'E5-large-v2',
+    provider: 'Microsoft',
+    type: 'Embedding',
+    cost_tier: 'low',
+    latency_tier: 'medium',
+    description: 'Strong text embeddings for search and retrieval.',
+    use_cases: 'Search, retrieval, similarity matching.',
+    industry: ['general', 'search'],
+    benchmarks: { overall: 0.80 },
+    pros: ['Good performance', 'Open source'],
+    cons: ['Self-hosted only'],
+    url: 'https://github.com/microsoft/unilm'
+  }
+];
+
+for (const m of comprehensiveModels) upsertModel(m);
+await db.write();
+const count = (db.data.models || []).length;
+console.log(`Seeded comprehensive models. Total models: ${count}`);
