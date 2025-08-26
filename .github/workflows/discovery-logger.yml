@@ -1,0 +1,65 @@
+name: Daily AI Model Discovery
+
+on:
+  schedule:
+    # Run daily at 5 PM PST (1 AM UTC next day)
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  discover-models:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run model discovery
+      run: npm run discover
+      env:
+        NODE_ENV: production
+        
+    - name: Log discovery results
+      run: |
+        echo "🔍 Discovery Results:"
+        echo "===================="
+        
+        if [ -f "./data/db.json" ]; then
+          TOTAL_MODELS=$(node -e "const db = JSON.parse(require('fs').readFileSync('./data/db.json', 'utf8')); console.log(db.models ? db.models.length : 0);")
+          LLM_COUNT=$(node -e "const db = JSON.parse(require('fs').readFileSync('./data/db.json', 'utf8')); console.log(db.models ? db.models.filter(m => m.type === 'LLM').length : 0);")
+          VISION_COUNT=$(node -e "const db = JSON.parse(require('fs').readFileSync('./data/db.json', 'utf8')); console.log(db.models ? db.models.filter(m => m.type === 'Vision').length : 0);")
+          SPEECH_COUNT=$(node -e "const db = JSON.parse(require('fs').readFileSync('./data/db.json', 'utf8')); console.log(db.models ? db.models.filter(m => m.type === 'Speech').length : 0);")
+          
+          echo "📊 Total Models: $TOTAL_MODELS"
+          echo "🤖 LLM Models: $LLM_COUNT"
+          echo "👁️ Vision Models: $VISION_COUNT"
+          echo "🎤 Speech Models: $SPEECH_COUNT"
+          
+          # Show recent models
+          echo ""
+          echo "🆕 Recent Models:"
+          echo "================"
+          node -e "
+          const db = JSON.parse(require('fs').readFileSync('./data/db.json', 'utf8'));
+          const models = db.models || [];
+          const recent = models
+            .sort((a, b) => new Date(b.last_updated || 0) - new Date(a.last_updated || 0))
+            .slice(0, 5);
+          recent.forEach(m => console.log(\`- \${m.name} (\${m.type}) - \${m.provider}\`));
+          "
+        else
+          echo "❌ Database file not found"
+        fi
+        
+        echo ""
+        echo "🌐 Demo URL: https://sisodiabhumca.github.io/find-ai-models/"
+        echo "📝 To update demo manually, run: npm run update-demo"

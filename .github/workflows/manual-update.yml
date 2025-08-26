@@ -1,0 +1,44 @@
+name: Manual Demo Update
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+jobs:
+  update-demo:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run discovery and update demo
+      run: |
+        echo "🔄 Running discovery..."
+        npm run discover
+        
+        echo "🔄 Updating demo..."
+        npm run update-demo
+        
+        echo "✅ Demo updated successfully!"
+        
+    - name: Show results
+      run: |
+        echo "📊 Current Demo Status:"
+        echo "======================="
+        
+        if [ -f "./data/db.json" ]; then
+          TOTAL_MODELS=$(node -e "const db = JSON.parse(require('fs').readFileSync('./data/db.json', 'utf8')); console.log(db.models ? db.models.length : 0);")
+          echo "📈 Total Models in Database: $TOTAL_MODELS"
+        fi
+        
+        echo "🌐 Demo URL: https://sisodiabhumca.github.io/find-ai-models/"
+        echo "📝 Demo updated with latest models!"
