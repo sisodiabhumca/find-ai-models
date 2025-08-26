@@ -9,6 +9,10 @@ on:
 jobs:
   update-demo:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     
     steps:
     - name: Checkout repository
@@ -39,3 +43,5 @@ jobs:
         git add data/db.json
         git commit -m "Auto-update static demo with latest models [skip ci]" || echo "No changes to commit"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
