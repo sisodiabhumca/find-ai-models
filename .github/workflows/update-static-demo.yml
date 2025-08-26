@@ -10,7 +10,6 @@ jobs:
   update-demo:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
       pages: write
       id-token: write
     
@@ -35,13 +34,14 @@ jobs:
     - name: Update static demo with latest models
       run: npm run update-demo
         
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add public/static-demo.html
-        git add data/db.json
-        git commit -m "Auto-update static demo with latest models [skip ci]" || echo "No changes to commit"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: './public'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
