@@ -2454,6 +2454,519 @@
       "source": "huggingface",
       "id": "441c4154-a157-4377-9afc-b189cffa4fd4",
       "last_updated": "2025-08-25T21:03:13.751Z"
+    },
+    {
+      "name": "microsoft/VibeVoice-1.5B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, vibevoice, text-generation, Podcast, text-to-speech, en, zh, arxiv:2508.19205, arxiv:2412.08635, license:mit, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat, Text-to-speech",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/microsoft/VibeVoice-1.5B",
+      "source": "huggingface",
+      "id": "9de91a03-c00c-47b6-ab91-b86ab76388e6",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "meituan-longcat/LongCat-Flash-Chat",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source LongCat-Flash-Chat, safetensors, text-generation, transformers, conversational, custom_code, license:mit, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Chat",
+      "source": "huggingface",
+      "id": "0a59bedf-331c-4dea-adc5-808ddf612963",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "apple/FastVLM-0.5B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source ml-fastvlm, safetensors, llava_qwen2, text-generation, transformers, conversational, custom_code, arxiv:2412.13303, license:apple-amlr, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/apple/FastVLM-0.5B",
+      "source": "huggingface",
+      "id": "c0b2c78c-7c35-4260-88a7-c3390d6f21f9",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "apple/FastVLM-7B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source ml-fastvlm, safetensors, llava_qwen2, text-generation, transformers, conversational, custom_code, arxiv:2412.13303, license:apple-amlr, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/apple/FastVLM-7B",
+      "source": "huggingface",
+      "id": "698da097-50fe-44bd-9579-c42524c3860b",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "NousResearch/Hermes-4-70B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, Llama-3.1, instruct, finetune, reasoning, hybrid-mode, chatml, function calling, tool use, json mode, structured outputs, atropos, dataforge, long context, roleplaying, chat, conversational, en, arxiv:2508.18255, base_model:meta-llama/Llama-3.1-70B, base_model:finetune:meta-llama/Llama-3.1-70B, license:llama3, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/NousResearch/Hermes-4-70B",
+      "source": "huggingface",
+      "id": "a8699e18-3c6b-4765-9e1b-86c04a50a365",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "microsoft/VibeVoice-Large",
+      "provider": "Hugging Face",
+      "type": "Speech",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source safetensors, vibevoice, Podcast, text-to-speech, en, zh, arxiv:2508.19205, arxiv:2412.08635, license:mit, region:us model",
+      "use_cases": "Text-to-speech",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/microsoft/VibeVoice-Large",
+      "source": "huggingface",
+      "id": "f852cb4e-edd1-4786-b924-6a25b90b68da",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "nvidia/NVIDIA-Nemotron-Nano-12B-v2",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, nvidia, pytorch, text-generation, conversational, en, es, fr, de, it, ja, dataset:nvidia/Nemotron-Post-Training-Dataset-v1, dataset:nvidia/Nemotron-Post-Training-Dataset-v2, dataset:nvidia/Nemotron-Pretraining-Dataset-sample, dataset:nvidia/Nemotron-CC-v2, dataset:nvidia/Nemotron-CC-Math-v1, dataset:nvidia/Nemotron-Pretraining-SFT-v1, arxiv:2504.03624, arxiv:2508.14444, arxiv:2412.02595, base_model:nvidia/NVIDIA-Nemotron-Nano-12B-v2-Base, base_model:finetune:nvidia/NVIDIA-Nemotron-Nano-12B-v2-Base, license:other, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Nano-12B-v2",
+      "source": "huggingface",
+      "id": "62365623-b29f-4009-b43d-700e57d0766b",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "onnx-community/FastVLM-0.5B-ONNX",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers.js, onnx, llava_qwen2, text-generation, fastvlm, image-text-to-text, conversational, arxiv:2412.13303, base_model:apple/FastVLM-0.5B, base_model:quantized:apple/FastVLM-0.5B, license:apple-amlr, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/onnx-community/FastVLM-0.5B-ONNX",
+      "source": "huggingface",
+      "id": "ad8d9bf4-f49c-4fb0-bcad-453dcc41d1f8",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "apple/FastVLM-1.5B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source ml-fastvlm, safetensors, llava_qwen2, text-generation, transformers, conversational, custom_code, arxiv:2412.13303, license:apple-amlr, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/apple/FastVLM-1.5B",
+      "source": "huggingface",
+      "id": "b53a7014-b1ad-4fd5-971a-0309f72d32e6",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "NousResearch/Hermes-4-70B-FP8",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, Llama-3.1, instruct, finetune, reasoning, hybrid-mode, chatml, function calling, tool use, json mode, structured outputs, atropos, dataforge, long context, roleplaying, chat, conversational, en, arxiv:2508.18255, base_model:meta-llama/Llama-3.1-70B, base_model:quantized:meta-llama/Llama-3.1-70B, license:llama3, autotrain_compatible, text-generation-inference, endpoints_compatible, compressed-tensors, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/NousResearch/Hermes-4-70B-FP8",
+      "source": "huggingface",
+      "id": "a417b1e9-52dd-4a79-8d0d-efe14600fb4d",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "Qwen/Qwen3-0.6B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, qwen3, text-generation, conversational, arxiv:2505.09388, base_model:Qwen/Qwen3-0.6B-Base, base_model:finetune:Qwen/Qwen3-0.6B-Base, license:apache-2.0, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/Qwen/Qwen3-0.6B",
+      "source": "huggingface",
+      "id": "439a395e-1d8d-4e78-8dc9-f03d0be5a365",
+      "last_updated": "2025-09-02T19:38:14.232Z"
+    },
+    {
+      "name": "vikhyatk/moondream2",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, moondream1, text-generation, image-text-to-text, custom_code, doi:10.57967/hf/3219, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/vikhyatk/moondream2",
+      "source": "huggingface",
+      "id": "44fa3010-40e8-4e3f-92e5-a4922aae7b46",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "meituan-longcat/LongCat-Flash-Chat-FP8",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source LongCat-Flash-Chat, safetensors, text-generation, transformers, conversational, custom_code, license:mit, fp8, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/meituan-longcat/LongCat-Flash-Chat-FP8",
+      "source": "huggingface",
+      "id": "6f3e9dbf-9109-4462-8b2c-25228770f9f1",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "NousResearch/Hermes-4-405B-FP8",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, Llama-3.1, instruct, finetune, reasoning, hybrid-mode, chatml, function calling, tool use, json mode, structured outputs, atropos, dataforge, long context, roleplaying, chat, conversational, en, arxiv:2508.18255, base_model:meta-llama/Llama-3.1-405B, base_model:quantized:meta-llama/Llama-3.1-405B, license:llama3, autotrain_compatible, text-generation-inference, endpoints_compatible, compressed-tensors, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/NousResearch/Hermes-4-405B-FP8",
+      "source": "huggingface",
+      "id": "f5f7c80a-3002-4137-9c47-38b563e67395",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "google/gemma-3n-E4B-it-litert-lm",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source litert-lm, text-generation, arxiv:1905.07830, arxiv:1905.10044, arxiv:1911.11641, arxiv:1904.09728, arxiv:1705.03551, arxiv:1911.01547, arxiv:1907.10641, arxiv:1903.00161, arxiv:2210.03057, arxiv:2502.12404, arxiv:2411.19799, arxiv:2009.03300, arxiv:2502.21228, arxiv:2311.12022, arxiv:2403.07974, arxiv:2108.07732, arxiv:2107.03374, license:gemma, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/google/gemma-3n-E4B-it-litert-lm",
+      "source": "huggingface",
+      "id": "109506f7-04c6-446f-99e4-61885b2c52b3",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, gguf, gpt_oss, text-generation, vllm, unsloth, abliterated, uncensored, conversational, base_model:unsloth/gpt-oss-20b-BF16, base_model:quantized:unsloth/gpt-oss-20b-BF16, license:apache-2.0, autotrain_compatible, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated",
+      "source": "huggingface",
+      "id": "ec0c8393-1bcd-4baa-a82d-faab626b86d1",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "openai-community/gpt2",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, pytorch, tf, jax, tflite, rust, onnx, safetensors, gpt2, text-generation, exbert, en, doi:10.57967/hf/0039, license:mit, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/openai-community/gpt2",
+      "source": "huggingface",
+      "id": "abd85812-26b5-45ed-94a5-d3f19cdae9ba",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "meta-llama/Llama-3.1-8B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, facebook, meta, pytorch, llama-3, en, de, fr, it, pt, hi, es, th, arxiv:2204.05149, license:llama3.1, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/meta-llama/Llama-3.1-8B",
+      "source": "huggingface",
+      "id": "13195fa9-c9d0-4a63-9fd3-08b7c3a92b1c",
+      "last_updated": "2025-09-02T19:38:14.233Z"
+    },
+    {
+      "name": "meta-llama/Meta-Llama-3-8B",
+      "provider": "Hugging Face",
+      "type": "LLM",
+      "cost_tier": "low",
+      "latency_tier": "medium",
+      "description": "Open source transformers, safetensors, llama, text-generation, facebook, meta, pytorch, llama-3, en, license:llama3, autotrain_compatible, text-generation-inference, endpoints_compatible, region:us model",
+      "use_cases": "Text generation, Chat",
+      "industry": [
+        "general"
+      ],
+      "benchmarks": {
+        "overall": 0.7
+      },
+      "pros": [
+        "Open source",
+        "Free to use"
+      ],
+      "cons": [
+        "Requires self-hosting",
+        "Technical expertise needed"
+      ],
+      "url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B",
+      "source": "huggingface",
+      "id": "f6a31cae-d1f0-4958-af08-67af13867cf5",
+      "last_updated": "2025-09-02T19:38:14.233Z"
     }
   ],
   "bookmarks": []
